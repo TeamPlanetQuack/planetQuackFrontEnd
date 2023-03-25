@@ -60,10 +60,6 @@ Planets:
 - How we met this goal:
 - How we exceeded this goal:
 
--- It should also include a list of the Quackathon requirements and how those were met or exceeded by your team.
-- How we met this goal:
-- How we exceeded this goal:
-
 Homepage:
 
 -- The homepage should be an overview of the solar system.

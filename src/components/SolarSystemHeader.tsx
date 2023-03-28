@@ -2,7 +2,7 @@ import React
 //  { useState, useEffect } 
  from "react";
 
-const SolarSystemHeader = () => {
+const SolarSystemHeader: React.FC = () => {
     return (
       <div>
         <div className="sunImg"></div>

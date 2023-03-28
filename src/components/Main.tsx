@@ -1,60 +1,33 @@
-import React ,
-{ useEffect } 
-from "react";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
-import {
-  PlanetsNavigationBar, 
-  SolarSystemHeader,
-} from '.'
-// import axios from 'axios'
+import React, { useState, useEffect } from "react";
+// import { BrowserRouter as Router, Routes } from "react-router-dom";
+import { PlanetsNavigationBar, SolarSystemHeader } from ".";
+import { getAllPlanets } from "../api-adapter";
 
 const Main = () => {
 
-  useEffect(() => {
-    // axios.get('http://localhost:8080/api/planets').then((response) => {
-    //   console.log(response)
+  const [allPlanets, setAllPlanets] = useState({})
 
-
-
-      
-    // })
-    try {
-      const test = async () => {
-        const options = {
-          headers: {'Content-Type': 'application/json'}
-        }
-  
-  
-        const response = await fetch('http://localhost:8080/api/planets/', options );
-        const res = await response.json() 
-  
-        return res
-  
-      }
-      test();
-      
-    } catch (error) {
-      console.error(error)
+  useEffect(()=>{
+    async function fetchPlanets(){
+      const allFetchedPlanets = await getAllPlanets();
+      setAllPlanets(allFetchedPlanets)
     }
+    fetchPlanets();
+  }, [])
 
+  console.log(allPlanets)
 
-  }, []);
-
-
-
-
-    return (
-      <Router>
+  return (
+    // <Router>
       <div id="main">
         <SolarSystemHeader />
         <PlanetsNavigationBar />
-        <Routes>
+        {/* <Routes> */}
 
-        </Routes>
-
+        {/* </Routes> */}
       </div>
-      </Router>
-    );
-  };
-  
-  export default Main;
+    // </Router>
+  );
+};
+
+export default Main;

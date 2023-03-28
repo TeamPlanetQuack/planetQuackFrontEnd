@@ -1,0 +1,14 @@
+#planetsNavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+@media (width<1012px) {
+    #planetsNavBar {
+        flex-wrap: wrap;
+        gap: 20px 0;
+    }
+}
+

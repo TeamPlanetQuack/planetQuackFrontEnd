@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  PlanetsNavigationBar, 
+  SolarSystemHeader,
+} from './'
 
 const Main = () => {
     return (
       <Router>
       <div id="main">
-        <p>Hi, this is main.</p>
+        <SolarSystemHeader />
+        <PlanetsNavigationBar />
         <Routes>
 
         </Routes>

@@ -2,7 +2,7 @@
   "name": "planetsfront",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "start": "react-scripts start"
   },

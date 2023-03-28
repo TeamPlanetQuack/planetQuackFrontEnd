@@ -2,7 +2,7 @@ import React
 //  { useState, useEffect } 
  from "react";
 
-const PlanetsNavigationBar: React.FC = () => {
+const PlanetsNavigationBar = () => {
     return (
       <div id="planetsNavBar">
         <div className="planetImg mercuryImg"></div>

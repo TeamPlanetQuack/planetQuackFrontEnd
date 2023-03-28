@@ -1,0 +1,1 @@
+{"version":3,"file":"SolarSystemHeader.js","sourceRoot":"","sources":["../../src/components/SolarSystemHeader.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK;AACZ,4BAA4B;KACtB,OAAO,CAAC;AAEd,MAAM,iBAAiB,GAAa,GAAG,EAAE;IACrC,OAAO,CACL;QACE,6BAAK,SAAS,EAAC,QAAQ,GAAO,CAC1B,CACP,CAAC;AACJ,CAAC,CAAC;AAEF,eAAe,iBAAiB,CAAC"}

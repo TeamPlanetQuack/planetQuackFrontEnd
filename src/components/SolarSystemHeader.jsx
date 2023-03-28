@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 const SolarSystemHeader = () => {
     return (
       <div>
-        <div class="sunImg">Here comes the sun, doodoodoodooooo.</div>
+        <div class="sunImg"></div>
       </div>
     );
   };

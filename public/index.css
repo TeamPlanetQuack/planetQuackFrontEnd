@@ -45,6 +45,9 @@ a:hover {
     border-radius: 15px;
     justify-self: center;
     box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .didYouKnow:hover {
@@ -78,10 +81,28 @@ a:hover {
     justify-self: center;
     animation: definitionsEaseIn 0.3s ease-in-out;
     box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hidden {
     display: none;
+}
+
+#quizContainer {
+    background: #06BA63;
+    color: #FBFFFE;
+    font-weight: bold;
+    width: 80%;
+    padding: 10px;
+    border-radius: 15px;
+    justify-self: center;
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes definitionsEaseIn{

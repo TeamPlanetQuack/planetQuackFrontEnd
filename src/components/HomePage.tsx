@@ -1,5 +1,6 @@
 import React from //  { useState, useEffect }
 "react";
+import {Quiz} from "./"
 
 const HomePage: React.FC = () => {
 
@@ -105,13 +106,13 @@ function clickDidYouKnow () {
 
       <h3>Click each of the planet icons to learn more!</h3>
 
+    <div id="quizContainer">
       <p>
-        {" "}
         Would you like to check your knowledge on our solar system? After
         exploring the different planets and moons in the solar system come back
         to see what you've learned with the quiz below!
       </p>
-      {/* Component here for quiz! */}
+      <Quiz /></div>
     </div>
   );
 };

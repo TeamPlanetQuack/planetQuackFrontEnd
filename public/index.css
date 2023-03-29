@@ -45,6 +45,9 @@ a:hover {
     border-radius: 15px;
     justify-self: center;
     box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .didYouKnow:hover {
@@ -78,6 +81,9 @@ a:hover {
     justify-self: center;
     animation: definitionsEaseIn 0.3s ease-in-out;
     box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hidden {

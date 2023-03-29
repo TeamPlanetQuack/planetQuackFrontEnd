@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { PlanetsNavigationBar, SolarSystemHeader, HomePage } from ".";
+import { PlanetsNavigationBar, SolarSystemHeader, HomePage } from "./";
 import { getAllPlanets } from "../api-adapter";
 const Main = () => {
     const [allPlanets, setAllPlanets] = useState({});

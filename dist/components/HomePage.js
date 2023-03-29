@@ -1,5 +1,6 @@
 import React from //  { useState, useEffect }
  "react";
+import { Quiz } from "./";
 const HomePage = () => {
     function defineOrbit() {
         const definition = document.getElementById("orbitDef");
@@ -69,7 +70,8 @@ const HomePage = () => {
         React.createElement("h3", null, "Click each of the planet icons to learn more!"),
         React.createElement("p", null,
             " ",
-            "Would you like to check your knowledge on our solar system? After exploring the different planets and moons in the solar system come back to see what you've learned with the quiz below!")));
+            "Would you like to check your knowledge on our solar system? After exploring the different planets and moons in the solar system come back to see what you've learned with the quiz below!"),
+        React.createElement(Quiz, null)));
 };
 export default HomePage;
 //# sourceMappingURL=HomePage.js.map

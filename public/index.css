@@ -1,4 +1,9 @@
 /* Palette:  f19953 (orange) FBFFFE (white) 1B2735 (background galaxy dark) 06BA63 (green) maybe: 816E94 (purple)*/
+body{
+  background-color: #101010;
+  color: white
+}
+
 
 #planetsNavBar {
   display: flex;
@@ -114,4 +119,16 @@ a:hover {
         transform: scale(1);
         opacity: 100%;
     }
+}
+
+
+.space {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.starfield{
+  position: fixed;
+  z-index: -1;
 }

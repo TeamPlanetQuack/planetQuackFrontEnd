@@ -2,17 +2,24 @@ import React
 //  { useState, useEffect } 
  from "react";
 
-const PlanetsNavigationBar: React.FC = () => {
+ interface PlanetsNavigationBarProps {
+  allPlanets: Array<Object>;
+}
+
+
+const PlanetsNavigationBar: React.FC<PlanetsNavigationBarProps> = (props: PlanetsNavigationBarProps) => {
+    const allPlanets = props.allPlanets;
+
     return (
       <div id="planetsNavBar">
-        <div className="planetImg mercuryImg"></div>
-        <div className="planetImg venusImg"></div>
-        <div className="planetImg earthImg"></div>
-        <div className="planetImg marsImg"></div>
-        <div className="planetImg jupiterImg"></div>
-        <div className="planetImg saturnImg"></div>
-        <div className="planetImg uranusImg"></div>
-        <div className="planetImg neptuneImg"></div>
+        {allPlanets ? allPlanets.map((planet: any) => {
+          return (
+            <div className="planet" key={planet.id}>
+              <div className="planetImg" id={planet.name} ></div>
+              <p>{planet.name}</p>
+            </div>
+          );
+         }) : 'Loading...'}
       </div>
     );
   };

@@ -1,14 +1,96 @@
+/* Palette:  f19953 (orange) FBFFFE (white) 1B2735 (background galaxy dark) 06BA63 (green) maybe: 816E94 (purple)*/
+
 #planetsNavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
 }
 
 @media (width<1012px) {
-    #planetsNavBar {
-        flex-wrap: wrap;
-        gap: 20px 0;
-    }
+  #planetsNavBar {
+    flex-direction: column;
+    gap: 20px 0;
+  }
 }
 
+/* Homepage Content CSS */
+
+.vocab:hover {
+  cursor: help;
+  font-weight: bold;
+}
+
+.vocab {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.didYouKnow {
+    background: #06BA63;
+    color: #FBFFFE;
+    font-weight: bold;
+    width: 80%;
+    padding: 10px;
+    border-radius: 15px;
+    justify-self: center;
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+.didYouKnow:hover {
+    cursor: pointer;
+}
+
+.didYouKnow:active {
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.75);
+}
+
+.dYK {
+    display: block;
+    font-size: 280%; 
+    aspect-ratio: 1;
+    padding-right: 20px;
+    padding-left: 10px;
+    float:left;
+}
+
+#didYouKnowBefore {
+    font-size: 280%;
+}
+
+.definition {
+    background: #F19953;
+    color: #FBFFFE;
+    font-weight: bold;
+    width:80%;
+    padding: 10px;
+    border-radius: 15px;
+    justify-self: center;
+    animation: definitionsEaseIn 0.3s ease-in-out;
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes definitionsEaseIn{
+    0% {
+        transform:scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 100%;
+    }
+}

@@ -68,10 +68,9 @@ const HomePage = () => {
             " in our solar system that don't quite meet the definition of a planet. Many of the dwarf planets in our solar system, including Pluto, extend deep into the Kuiper Belt. The Kuiper Belt is the deepest reaches of our solar system containing countless objects that are rocky or icy."),
         React.createElement("div", { className: "definition hidden", id: "dwarfDef" }, "Dwarf Planet - an object in space that is similar to a planet but they do not have an orbital path that is clear of other materials"),
         React.createElement("h3", null, "Click each of the planet icons to learn more!"),
-        React.createElement("p", null,
-            " ",
-            "Would you like to check your knowledge on our solar system? After exploring the different planets and moons in the solar system come back to see what you've learned with the quiz below!"),
-        React.createElement(Quiz, null)));
+        React.createElement("div", { id: "quizContainer" },
+            React.createElement("p", null, "Would you like to check your knowledge on our solar system? After exploring the different planets and moons in the solar system come back to see what you've learned with the quiz below!"),
+            React.createElement(Quiz, null))));
 };
 export default HomePage;
 //# sourceMappingURL=HomePage.js.map

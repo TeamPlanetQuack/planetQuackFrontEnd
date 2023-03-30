@@ -26,7 +26,7 @@ const Quiz = () => {
             return __awaiter(this, void 0, void 0, function* () {
                 const tenQuestions = yield getTenQuizQuestions();
                 const shuffledQuestions = tenQuestions.map((question) => {
-                    return Object.assign(Object.assign({}, question), { answers: shuffleAnswers(question), selectedAnswer: null });
+                    return Object.assign(Object.assign({}, question), { answers: shuffleAnswers(question), selectedAnswer: null, isCorrect: null });
                 });
                 setQuestions(shuffledQuestions);
             });
@@ -35,14 +35,16 @@ const Quiz = () => {
     }, []);
     function handleSubmit(e) {
         e.preventDefault();
-        const userScore = questions.reduce((total, question) => {
+        const updatedQuestions = questions.map((question) => {
             if (question.selectedAnswer === question.correct_answer) {
-                return total + 1;
+                return Object.assign(Object.assign({}, question), { isCorrect: true });
             }
             else {
-                return total;
+                return Object.assign(Object.assign({}, question), { isCorrect: false });
             }
-        }, 0);
+        });
+        setQuestions(updatedQuestions);
+        const userScore = updatedQuestions.filter((question) => question.isCorrect).length;
         setScore(userScore);
         setShowResult(true);
     }
@@ -51,12 +53,20 @@ const Quiz = () => {
         updatedQuestions[questionIndex].selectedAnswer = answer;
         setQuestions(updatedQuestions);
     }
-    return (React.createElement("div", null, showResult ? (React.createElement("p", null,
-        "You scored ",
-        score,
-        " out of 10!")
-    // {score>7 ? <h2>Great Job!</h2> : <h2>Good Effort, keep studying!</h2>}
-    ) : (React.createElement("form", { onSubmit: handleSubmit },
+    return (React.createElement("div", null, showResult ? (React.createElement("div", null,
+        React.createElement("p", null,
+            "You scored ",
+            score,
+            " out of 10!"),
+        questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
+            React.createElement("h3", null, question.question),
+            question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
+                React.createElement("label", null,
+                    React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer), disabled: true }),
+                    answer)))),
+            question.isCorrect ? (React.createElement("p", { style: { color: "green" } }, "Correct!")) : (React.createElement("p", { style: { color: "red" } },
+                "Incorrect. The correct answer was: ",
+                question.correct_answer))))))) : (React.createElement("form", { onSubmit: handleSubmit },
         questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
             React.createElement("h3", null, question.question),
             question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { getTenQuizQuestions } from "../api-adapter";
 
-
 type Question = {
-    question: string;
-    correct_answer: string;
-    incorrect_answers: string[];
-    answers: string [];
-    selectedAnswer: string | null;
-  };
+  question: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+  answers: string[];
+  selectedAnswer: string | null;
+  isCorrect: null | boolean;
+};
 
 const Quiz = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -33,7 +33,8 @@ const Quiz = () => {
         return {
           ...question,
           answers: shuffleAnswers(question),
-          selectedAnswer: null
+          selectedAnswer: null,
+          isCorrect: null,
         };
       });
       setQuestions(shuffledQuestions);
@@ -41,16 +42,27 @@ const Quiz = () => {
     fetchTen();
   }, []);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>):void {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
 
-    const userScore = questions.reduce((total, question) => {
+    const updatedQuestions = questions.map((question) => {
       if (question.selectedAnswer === question.correct_answer) {
-        return total + 1;
+        return {
+          ...question,
+          isCorrect: true,
+        };
       } else {
-        return total;
+        return {
+          ...question,
+          isCorrect: false,
+        };
       }
-    }, 0);
+    });
+
+    setQuestions(updatedQuestions);
+    const userScore = updatedQuestions.filter(
+      (question) => question.isCorrect
+    ).length;
 
     setScore(userScore);
     setShowResult(true);
@@ -65,8 +77,38 @@ const Quiz = () => {
   return (
     <div>
       {showResult ? (
-        <p>You scored {score} out of 10!</p>
-        // {score>7 ? <h2>Great Job!</h2> : <h2>Good Effort, keep studying!</h2>}
+        <div>
+          <p>You scored {score} out of 10!</p>
+          {questions.map((question, questionIndex) => (
+            <div key={questionIndex}>
+              <h3>{question.question}</h3>
+              {question.answers.map((answer, answerIndex) => (
+                <div key={answerIndex}>
+                  <label>
+                    <input
+                      type="radio"
+                      value={answer}
+                      name={`question${questionIndex}`}
+                      checked={question.selectedAnswer === answer}
+                      onChange={() =>
+                        handleAnswerChange(questionIndex, answer)
+                      }
+                      disabled
+                    />
+                    {answer}
+                  </label>
+                </div>
+              ))}
+              {question.isCorrect ? (
+                <p style={{ color: "green" }}>Correct!</p>
+              ) : (
+                <p style={{ color: "red" }}>
+                  Incorrect. The correct answer was: {question.correct_answer}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       ) : (
         <form onSubmit={handleSubmit}>
           {questions.map((question, questionIndex) => (

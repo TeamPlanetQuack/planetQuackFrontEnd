@@ -1,8 +1,6 @@
 import React from "react";
 interface PlanetsNavigationBarProps {
-    allPlanets: Array<Object>;
     selectedPlanet: planet | null;
-    setSelectedPlanet: Function;
 }
 type planet = {
     id: number;
@@ -16,5 +14,5 @@ type planet = {
     orbit: string;
     rotation: string;
 };
-declare const PlanetsNavigationBar: React.FC<PlanetsNavigationBarProps>;
-export default PlanetsNavigationBar;
+declare const PlanetInfoBox: React.FC<PlanetsNavigationBarProps>;
+export default PlanetInfoBox;

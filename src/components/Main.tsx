@@ -22,12 +22,13 @@ const Main = () => {
       <div id="main">
         <div className="space">
         <StarBg />
-        <SolarSystemHeader />
+        <div className="spaceMinusStars">
+        <SolarSystemHeader setSelectedPlanet={setSelectedPlanet}/>
         <PlanetsNavigationBar allPlanets={allPlanets} selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet}/>
         {!selectedPlanet ? <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>: null}
-        
+        </div>
       </div>
     </div>
     </Router>

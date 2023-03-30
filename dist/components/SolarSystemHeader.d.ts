@@ -1,3 +1,6 @@
 import React from "react";
-declare const SolarSystemHeader: React.FC;
+interface PlanetsNavigationBarProps {
+    setSelectedPlanet: Function;
+}
+declare const SolarSystemHeader: React.FC<PlanetsNavigationBarProps>;
 export default SolarSystemHeader;

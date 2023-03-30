@@ -27,10 +27,11 @@ const Main = () => {
         React.createElement("div", { id: "main" },
             React.createElement("div", { className: "space" },
                 React.createElement(StarBg, null),
-                React.createElement(SolarSystemHeader, null),
-                React.createElement(PlanetsNavigationBar, { allPlanets: allPlanets, selectedPlanet: selectedPlanet, setSelectedPlanet: setSelectedPlanet }),
-                !selectedPlanet ? React.createElement(Routes, null,
-                    React.createElement(Route, { path: "/", element: React.createElement(HomePage, null) })) : null))));
+                React.createElement("div", { className: "spaceMinusStars" },
+                    React.createElement(SolarSystemHeader, { setSelectedPlanet: setSelectedPlanet }),
+                    React.createElement(PlanetsNavigationBar, { allPlanets: allPlanets, selectedPlanet: selectedPlanet, setSelectedPlanet: setSelectedPlanet }),
+                    !selectedPlanet ? React.createElement(Routes, null,
+                        React.createElement(Route, { path: "/", element: React.createElement(HomePage, null) })) : null)))));
 };
 export default Main;
 //# sourceMappingURL=Main.js.map

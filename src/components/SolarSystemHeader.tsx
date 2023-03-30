@@ -1,12 +1,26 @@
 import React
 //  { useState, useEffect } 
  from "react";
+ import { useNavigate } from "react-router-dom";
 
-const SolarSystemHeader: React.FC = () => {
+ interface PlanetsNavigationBarProps {
+  setSelectedPlanet: Function;
+}
+
+
+const SolarSystemHeader: React.FC<PlanetsNavigationBarProps> = (
+  props: PlanetsNavigationBarProps
+) => {
+  const setSelectedPlanet = props.setSelectedPlanet;
+  const navigate = useNavigate();
+
+  function clickedHome() {
+    setSelectedPlanet(null);
+    navigate("/");
+  }
+  
     return (
-      <div>
-        <div className="sunImg"></div>
-      </div>
+        <div className="sunImg"><p onClick={clickedHome}>The Solar System</p></div>
     );
   };
   

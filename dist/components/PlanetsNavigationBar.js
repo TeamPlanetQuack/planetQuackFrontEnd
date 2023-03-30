@@ -14,7 +14,7 @@ const PlanetsNavigationBar = (props) => {
             return (React.createElement("div", { className: "planetImg", key: planet.id },
                 React.createElement("div", { className: "planetImg", id: planet.name, onClick: () => handleInfoBox(planet) })));
         }) : 'Loading...'),
-        selectedPlanet && (React.createElement(PlanetInfoBox, { selectedPlanet: selectedPlanet }))));
+        selectedPlanet && (React.createElement(PlanetInfoBox, { selectedPlanet: selectedPlanet, setSelectedPlanet: setSelectedPlanet }))));
 };
 export default PlanetsNavigationBar;
 //# sourceMappingURL=PlanetsNavigationBar.js.map

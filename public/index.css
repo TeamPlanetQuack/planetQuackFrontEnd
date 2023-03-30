@@ -1,4 +1,5 @@
 /* Palette:  f19953 (orange) FBFFFE (white) 1B2735 (background galaxy dark) 06BA63 (green) maybe: 816E94 (purple)*/
+
 body{
     background: radial-gradient(#1b2735 0%, #090a0f 100%);
   color: #FBFFFE;
@@ -131,4 +132,25 @@ a:hover {
 .starfield{
   position: fixed;
   z-index: -1;
+}
+
+/* Back to The Solar System Button */
+
+.backToHome {
+    background: #F19953;
+    font-size: 100%;
+    color: #FBFFFE;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+.backToHome:hover {
+    cursor: pointer;
+}
+
+.backToHome:active {
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.75);
 }

@@ -1,8 +1,14 @@
-import React 
-//  { useState, useEffect } 
-from "react";
+import React from //  { useState, useEffect }
+ "react";
+import { useNavigate } from "react-router-dom";
 const PlanetInfoBox = (props) => {
     const selectedPlanet = props.selectedPlanet;
+    const setSelectedPlanet = props.setSelectedPlanet;
+    const navigate = useNavigate();
+    function clickedBack() {
+        setSelectedPlanet(null);
+        navigate("/");
+    }
     return (React.createElement("div", { className: "infoBox" },
         React.createElement("div", { className: "infoBoxHeader" },
             React.createElement("div", { className: "infoBoxHeaderTitle" },
@@ -33,7 +39,8 @@ const PlanetInfoBox = (props) => {
                     React.createElement("div", { className: "planetFactsTxt" }, selectedPlanet.facts.map((fact, idx) => {
                         return (React.createElement("ul", { key: idx },
                             React.createElement("li", null, fact)));
-                    })))))));
+                    }))))),
+        React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default PlanetInfoBox;
 //# sourceMappingURL=PlanetInfoBox.js.map

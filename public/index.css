@@ -1,7 +1,7 @@
 /* Palette:  f19953 (orange) FBFFFE (white) 1B2735 (background galaxy dark) 06BA63 (green) maybe: 816E94 (purple)*/
 body{
-  background-color: #101010;
-  color: white
+    background: radial-gradient(#1b2735 0%, #090a0f 100%);
+  color: #FBFFFE;
 }
 
 
@@ -32,7 +32,7 @@ body{
 }
 
 a {
-  color: black;
+    color: #FBFFFE;
   text-decoration: underline;
   font-style: italic;
 }

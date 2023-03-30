@@ -6,6 +6,7 @@ import { getAllPlanets } from "../api-adapter";
 const Main = () => {
 
   const [allPlanets, setAllPlanets] = useState<Array<Object>>([])
+  const [selectedPlanet, setSelectedPlanet] = useState<any>(null)
 
   useEffect(()=>{
     async function fetchPlanets(){
@@ -15,7 +16,6 @@ const Main = () => {
     fetchPlanets();
   }, [])
 
-  console.log(allPlanets)
 
   return (
     <Router>
@@ -23,10 +23,11 @@ const Main = () => {
         <div className="space">
         <StarBg />
         <SolarSystemHeader />
-        <PlanetsNavigationBar allPlanets={allPlanets}/>
-        <Routes>
+        <PlanetsNavigationBar allPlanets={allPlanets} selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet}/>
+        {!selectedPlanet ? <Routes>
           <Route path="/" element={<HomePage />} />
-        </Routes>
+        </Routes>: null}
+        
       </div>
     </div>
     </Router>

@@ -9,10 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { PlanetsNavigationBar, SolarSystemHeader, HomePage } from "./";
+import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg } from "./";
 import { getAllPlanets } from "../api-adapter";
 const Main = () => {
-    const [allPlanets, setAllPlanets] = useState({});
+    const [allPlanets, setAllPlanets] = useState([]);
+    const [selectedPlanet, setSelectedPlanet] = useState(null);
     useEffect(() => {
         function fetchPlanets() {
             return __awaiter(this, void 0, void 0, function* () {
@@ -22,13 +23,14 @@ const Main = () => {
         }
         fetchPlanets();
     }, []);
-    console.log(allPlanets);
     return (React.createElement(Router, null,
         React.createElement("div", { id: "main" },
-            React.createElement(SolarSystemHeader, null),
-            React.createElement(PlanetsNavigationBar, null),
-            React.createElement(Routes, null,
-                React.createElement(Route, { path: "/", element: React.createElement(HomePage, null) })))));
+            React.createElement("div", { className: "space" },
+                React.createElement(StarBg, null),
+                React.createElement(SolarSystemHeader, null),
+                React.createElement(PlanetsNavigationBar, { allPlanets: allPlanets, selectedPlanet: selectedPlanet, setSelectedPlanet: setSelectedPlanet }),
+                !selectedPlanet ? React.createElement(Routes, null,
+                    React.createElement(Route, { path: "/", element: React.createElement(HomePage, null) })) : null))));
 };
 export default Main;
 //# sourceMappingURL=Main.js.map

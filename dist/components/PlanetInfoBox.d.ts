@@ -1,6 +1,7 @@
 import React from "react";
 interface PlanetsNavigationBarProps {
     selectedPlanet: planet | null;
+    setSelectedPlanet: Function;
 }
 type planet = {
     id: number;

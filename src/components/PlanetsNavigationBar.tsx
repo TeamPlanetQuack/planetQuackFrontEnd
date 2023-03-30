@@ -46,7 +46,7 @@ const PlanetsNavigationBar: React.FC<PlanetsNavigationBarProps> = (props: Planet
           );
          }) : 'Loading...'}</div>
          {selectedPlanet && (
-            <PlanetInfoBox selectedPlanet={selectedPlanet}/>
+            <PlanetInfoBox selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet}/>
            
 
          )}

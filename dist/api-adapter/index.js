@@ -21,16 +21,5 @@ export function getAllPlanets() {
     });
 }
 
-export function getTenQuizQuestions() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const response = yield fetch('http://localhost:8080/api/questions/ten');
-            const tenQuestions = yield response.json();
-            return tenQuestions;
-        }
-        catch (error) {
-            throw error;
-        }
-    });
-}
+
 //# sourceMappingURL=index.js.map

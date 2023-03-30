@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { getTenQuizQuestions } from "../api-adapter";
 
-const Quiz = () => {
-  const [questions, setQuestions] = useState([]);
-  const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
 
-  function shuffleAnswers(question) {
+type Question = {
+    question: string;
+    correct_answer: string;
+    incorrect_answers: string[];
+    answers: string [];
+    selectedAnswer: string | null;
+  };
+
+const Quiz = () => {
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [score, setScore] = useState<number>(0);
+  const [showResult, setShowResult] = useState<boolean>(false);
+
+  function shuffleAnswers(question: Question): string[] {
     const answers = [question.correct_answer, ...question.incorrect_answers];
 
     for (let i = answers.length - 1; i > 0; i--) {
@@ -20,7 +29,7 @@ const Quiz = () => {
   useEffect(() => {
     async function fetchTen() {
       const tenQuestions = await getTenQuizQuestions();
-      const shuffledQuestions = tenQuestions.map((question) => {
+      const shuffledQuestions = tenQuestions.map((question: any) => {
         return {
           ...question,
           answers: shuffleAnswers(question),
@@ -32,7 +41,7 @@ const Quiz = () => {
     fetchTen();
   }, []);
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>):void {
     e.preventDefault();
 
     const userScore = questions.reduce((total, question) => {
@@ -47,7 +56,7 @@ const Quiz = () => {
     setShowResult(true);
   }
 
-  function handleAnswerChange(questionIndex, answer) {
+  function handleAnswerChange(questionIndex: number, answer: string): void {
     const updatedQuestions = [...questions];
     updatedQuestions[questionIndex].selectedAnswer = answer;
     setQuestions(updatedQuestions);
@@ -71,7 +80,7 @@ const Quiz = () => {
                       value={answer}
                       name={`question${questionIndex}`}
                       checked={question.selectedAnswer === answer}
-                      onChange={(e) =>
+                      onChange={() =>
                         handleAnswerChange(questionIndex, answer)
                       }
                     />

@@ -1,3 +1,2 @@
-import React from "react";
-declare const Quiz: React.FC;
+declare const Quiz: () => JSX.Element;
 export default Quiz;

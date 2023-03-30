@@ -8,4 +8,11 @@ export async function getAllPlanets () {
         throw error;
     }
 }
-
+export async function getTenQuizQuestions() {
+    try {
+        const response = await fetch ('http://localhost:8080/api/questions/ten');
+        const tenQuestions = await response.json();
+        return tenQuestions;
+    } catch (error) {
+        throw error;
+    }}

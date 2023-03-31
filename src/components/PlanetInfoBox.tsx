@@ -1,12 +1,12 @@
-import React from //  { useState, useEffect }
+import React, { useState, useEffect } from 
 "react";
 import { useNavigate } from "react-router-dom";
+import { MoonInfo } from "./"
+import { getMoonsByPlanetId } from "../api-adapter";
 
 interface PlanetsNavigationBarProps {
   selectedPlanet: planet | null;
   setSelectedPlanet: Function;
-  moons: Array<Object>;
-  setMoons: Function;
 }
 
 type planet = {
@@ -23,17 +23,20 @@ type planet = {
 };
 
 // type moon = {
-//   id: number;
-//   name: string;
-//   name_origin: string;
-// }
+//     id: number;
+//     planet_id: number;
+//     moon_name: string;
+//     discovered: string;
+//     history: string;
+//     moon_radius: string;
+//   }
 
 const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   props: PlanetsNavigationBarProps
 ) => {
   const selectedPlanet = props.selectedPlanet;
   const setSelectedPlanet = props.setSelectedPlanet;
-  const moons = props.moons;
+  const [moons, setMoons] = useState<Array<Object>>([])
   // const setMoons = props.setMoons;
   console.log(moons);
 
@@ -44,6 +47,18 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
     navigate("/");
   }
 
+  useEffect(() => {
+    async function fetchMoons(){
+      if (!selectedPlanet) {
+        return;
+      } else {
+        const fetchedMoons = await getMoonsByPlanetId(selectedPlanet.id);
+        setMoons(fetchedMoons);
+      }
+    }
+    fetchMoons();
+  }, [selectedPlanet]);
+
   return (
     <div className="infoBox">
       <div className="infoBoxHeader">
@@ -52,23 +67,6 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
           <h3>{selectedPlanet!.name_origin}</h3>
         </div>
         <section className="infoBoxStats">
-          <div className="moonCnt">Moons: {selectedPlanet!.moon_num}</div>
-          <div className="moonInfoBox">
-            <div className="allMoons">
-              {selectedPlanet!.moon_num > 0 ? (
-                <div className="moonTxt">
-                  { Array.isArray(moons) ? moons.map((moon: any) => {
-                    return (
-                      <ul key={moon.id}>
-                        <li>{moon.moon_name}</li>
-                      </ul>
-                    );
-                  }): 'Loading...'}
-                </div>
-
-              ): 'This planet has no moons.'}
-            </div>
-          </div>
           <div className="planetRad">Radius: {selectedPlanet!.radius}km</div>
           <div className="planetDist">
             Distance from Sun: {selectedPlanet!.sun_distance}
@@ -95,6 +93,23 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
             </div>
           </div>
         </section>
+        <details>
+        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon{selectedPlanet!.moon_num>1 ? "s": null}: </summary>
+          <div className="moonInfoBox">
+            <div className="allMoons">
+              {selectedPlanet!.moon_num > 0 ? (
+                <div className="moonTxt">
+                  { moons && Array.isArray(moons) ? moons.map((moon: any) => {
+                    console.log(moon);
+                    return (
+                        <MoonInfo key={moon!.id} moon={moon}/>
+                    );
+                  }): 'Loading...'}
+                </div>
+
+              ): 'This planet has no moons.'}
+            </div>
+          </div></details>
       </div>
       <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System

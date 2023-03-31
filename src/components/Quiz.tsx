@@ -81,13 +81,14 @@ const Quiz = () => {
   }
 
   return (
-    <div>
+    <div id="quizPage">
+        <h1>Solar System Quiz</h1>
       {showResult ? (
         <div>
           <p>You scored {score} out of 10!</p>
           {questions.map((question, questionIndex) => (
             <div key={questionIndex}>
-              <h3>{question.question}</h3>
+              <p>{question.question}</p>
               {question.answers.map((answer, answerIndex) => (
                 <div key={answerIndex}>
                   <label>
@@ -119,7 +120,7 @@ const Quiz = () => {
         <form onSubmit={handleSubmit}>
           {questions.map((question, questionIndex) => (
             <div key={questionIndex}>
-              <h3>{question.question}</h3>
+              <p>{question.question}</p>
               {question.answers.map((answer, answerIndex) => (
                 <div key={answerIndex}>
                   <label>

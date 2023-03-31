@@ -255,3 +255,15 @@ a:hover {
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: fit-content fit-content fit-content
   }
+
+  /* Quiz Page CSS */
+
+  #quizPage {
+    width: 80vs;
+  }
+
+  @media (width<600px) {
+    #quizPage {
+        width:95vw;
+    }
+}

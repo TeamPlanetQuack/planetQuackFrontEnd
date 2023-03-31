@@ -9,10 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import React, { useState, useEffect } from "react";
 import { getTenQuizQuestions } from "../api-adapter";
+import { useNavigate } from "react-router-dom";
 const Quiz = () => {
     const [questions, setQuestions] = useState([]);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
+    const navigate = useNavigate();
     function shuffleAnswers(question) {
         const answers = [question.correct_answer, ...question.incorrect_answers];
         for (let i = answers.length - 1; i > 0; i--) {
@@ -53,27 +55,32 @@ const Quiz = () => {
         updatedQuestions[questionIndex].selectedAnswer = answer;
         setQuestions(updatedQuestions);
     }
-    return (React.createElement("div", null, showResult ? (React.createElement("div", null,
-        React.createElement("p", null,
-            "You scored ",
-            score,
-            " out of 10!"),
-        questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
-            React.createElement("h3", null, question.question),
-            question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
-                React.createElement("label", null,
-                    React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer), disabled: true }),
-                    answer)))),
-            question.isCorrect ? (React.createElement("p", { style: { color: "green" } }, "Correct!")) : (React.createElement("p", { style: { color: "red" } },
-                "Incorrect. The correct answer was: ",
-                question.correct_answer))))))) : (React.createElement("form", { onSubmit: handleSubmit },
-        questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
-            React.createElement("h3", null, question.question),
-            question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
-                React.createElement("label", null,
-                    React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer) }),
-                    answer))))))),
-        React.createElement("button", { type: "submit" }, "Submit")))));
+    function clickedBack() {
+        navigate("/");
+    }
+    return (React.createElement("div", null,
+        showResult ? (React.createElement("div", null,
+            React.createElement("p", null,
+                "You scored ",
+                score,
+                " out of 10!"),
+            questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
+                React.createElement("h3", null, question.question),
+                question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
+                    React.createElement("label", null,
+                        React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer), disabled: true }),
+                        answer)))),
+                question.isCorrect ? (React.createElement("p", { style: { color: "green" } }, "Correct!")) : (React.createElement("p", { style: { color: "red" } },
+                    "Incorrect. The correct answer was: ",
+                    question.correct_answer))))))) : (React.createElement("form", { onSubmit: handleSubmit },
+            questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
+                React.createElement("h3", null, question.question),
+                question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
+                    React.createElement("label", null,
+                        React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer) }),
+                        answer))))))),
+            React.createElement("button", { type: "submit" }, "Submit"))),
+        React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default Quiz;
 //# sourceMappingURL=Quiz.js.map

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg } from "./";
+
+import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg, Quiz } from "./";
 import { getAllPlanets, getMoonsByPlanetId } from "../api-adapter";
+
 
 const Main = () => {
 
@@ -42,6 +44,7 @@ const Main = () => {
         <PlanetsNavigationBar allPlanets={allPlanets} selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet} moons={moons} setMoons={setMoons}/>
         {!selectedPlanet ? <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/quiz" element={<Quiz />} />
         </Routes>: null}
         </div>
       </div>

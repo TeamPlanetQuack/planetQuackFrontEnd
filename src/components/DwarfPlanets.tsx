@@ -2,8 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getDwarfPlanets } from "../api-adapter";
 
+type Dwarf = {
+    facts: string[];
+    id: number;
+    name: string;
+    name_origin: string;
+    orbit: string;
+    radius: string;
+    rotation: string;
+    sun_distance: string;
+    type: string;
+  };
+
 const DwarfPlanets: React.FC = () => {
-  const [allDwarfs, setAllDwarfs] = useState<Array<Object>>([]);
+  const [allDwarfs, setAllDwarfs] = useState<Array<Dwarf>>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +34,8 @@ const DwarfPlanets: React.FC = () => {
 
   return (
     <div className="dwarfPlanets">
+        <h1>Dwarf Planets</h1>
+        {allDwarfs.map((dwarf) => (<h3>{dwarf.name}</h3>))}
       <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System
       </button>

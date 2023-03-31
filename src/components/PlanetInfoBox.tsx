@@ -53,10 +53,9 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
 
   return (
     <div className="infoBox">
-      <div className="infoBoxHeader">
-        <div className="infoBoxHeaderTitle">
+
           <h1>{selectedPlanet!.name}</h1>
-        </div>
+
         <section className="infoBoxStats">
             <div className="stats1">
           <span className="planetRad">Radius: {selectedPlanet!.radius} km </span>
@@ -70,14 +69,12 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
           <span className="planetRotation">
             Rotation Time: {selectedPlanet!.rotation}
           </span></div>
-          <p>{selectedPlanet!.name} is a {selectedPlanet!.type==="rocky" ? "terrestrial": "jovian"} planet meaning it is {selectedPlanet!.type==="gas"? "a gas giant" : "rocky"} and it is the {selectedPlanet!.id}{selectedPlanet!.id===1 ? "st" : null}{selectedPlanet!.id===2 ? "nd" : null}{selectedPlanet!.id===3 ? "rd" : null}{selectedPlanet!.id>=4 ? "th" : null} planet from the sun.</p>
-          <p>{selectedPlanet!.name_origin}</p>
         </section>
         <section className="infoBoxTxt">
+          <p>{selectedPlanet!.name} is a {selectedPlanet!.type==="rocky" ? "terrestrial": "jovian"} planet meaning it is {selectedPlanet!.type==="gas"? "a gas giant" : "rocky"} and it is the {selectedPlanet!.id}{selectedPlanet!.id===1 ? "st" : null}{selectedPlanet!.id===2 ? "nd" : null}{selectedPlanet!.id===3 ? "rd" : null}{selectedPlanet!.id>=4 ? "th" : null} planet from the sun.</p>
+          <p>{selectedPlanet!.name_origin}</p>
           <div className="planetFacts">
-            <div className="planetFactsTitle">
               <h3>More about {selectedPlanet!.name}</h3>
-            </div>
             <div className="planetFactsTxt">
               {selectedPlanet!.facts.map((fact: string, idx: number) => {
                 return (
@@ -106,7 +103,7 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
               ): 'This planet has no moons.'}
             </div>
           </details>
-      </div>
+      
       <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System
       </button>

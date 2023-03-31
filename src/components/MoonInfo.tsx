@@ -21,10 +21,13 @@ const MoonInfo: React.FC<PlanetsNavigationBarProps> = (
 return (
     <>
   { moon  ? 
-     (
+     (<div className="oneMoon">
+        <details><summary>{moon!.moon_name}</summary>
         <ul>
-        <li>{moon!.moon_name}</li>
-      </ul>   ) 
+        <li>{moon!.discovered}</li>
+        <li>{moon!.history}</li>
+        <li>{moon!.moon_name} has a radius of {moon!.moon_radius} km.</li>
+      </ul></details></div>   ) 
     
   : 'Loading...'}
     </>)

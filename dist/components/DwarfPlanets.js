@@ -25,6 +25,7 @@ const DwarfPlanets = () => {
     function clickedBack() {
         navigate("/");
     }
+    console.log(allDwarfs);
     return (React.createElement("div", { className: "dwarfPlanets" },
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };

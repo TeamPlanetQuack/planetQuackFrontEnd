@@ -18,6 +18,8 @@ const DwarfPlanets: React.FC = () => {
     navigate("/");
   }
 
+  console.log(allDwarfs)
+
   return (
     <div className="dwarfPlanets">
       <button className="backToHome" onClick={clickedBack}>

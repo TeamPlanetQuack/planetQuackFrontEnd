@@ -86,11 +86,10 @@ const PlanetInfoBox = (props) => {
                     " Moon",
                     selectedPlanet.moon_num === 1 ? null : "s",
                     ": "),
-                React.createElement("div", { className: "moonInfoBox" },
-                    React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement("div", { className: "moonTxt" }, moons && Array.isArray(moons) ? moons.map((moon) => {
-                        console.log(moon);
-                        return (React.createElement(MoonInfo, { key: moon.id, moon: moon }));
-                    }) : 'Loading...')) : 'This planet has no moons.')))),
+                React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement(React.Fragment, null, moons && Array.isArray(moons) ? moons.map((moon) => {
+                    console.log(moon);
+                    return (React.createElement(MoonInfo, { key: moon.id, moon: moon }));
+                }) : 'Loading...')) : 'This planet has no moons.'))),
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default PlanetInfoBox;

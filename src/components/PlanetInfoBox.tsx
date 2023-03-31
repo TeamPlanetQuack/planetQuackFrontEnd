@@ -99,21 +99,21 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
         </section>
         <details>
         <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon{selectedPlanet!.moon_num===1 ? null: "s"}: </summary>
-          <div className="moonInfoBox">
+
             <div className="allMoons">
               {selectedPlanet!.moon_num > 0 ? (
-                <div className="moonTxt">
+                <>
                   { moons && Array.isArray(moons) ? moons.map((moon: any) => {
                     console.log(moon);
                     return (
                         <MoonInfo key={moon!.id} moon={moon}/>
                     );
                   }): 'Loading...'}
-                </div>
+                </>
 
               ): 'This planet has no moons.'}
             </div>
-          </div></details>
+          </details>
       </div>
       <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System

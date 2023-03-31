@@ -11,14 +11,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MoonInfo } from "./";
 import { getMoonsByPlanetId } from "../api-adapter";
-// type moon = {
-//     id: number;
-//     planet_id: number;
-//     moon_name: string;
-//     discovered: string;
-//     history: string;
-//     moon_radius: string;
-//   }
 const PlanetInfoBox = (props) => {
     const selectedPlanet = props.selectedPlanet;
     const setSelectedPlanet = props.setSelectedPlanet;
@@ -45,46 +37,60 @@ const PlanetInfoBox = (props) => {
         fetchMoons();
     }, [selectedPlanet]);
     return (React.createElement("div", { className: "infoBox" },
-        React.createElement("div", { className: "infoBoxHeader" },
-            React.createElement("div", { className: "infoBoxHeaderTitle" },
-                React.createElement("h1", null, selectedPlanet.name),
-                React.createElement("h3", null, selectedPlanet.name_origin)),
-            React.createElement("section", { className: "infoBoxStats" },
-                React.createElement("div", { className: "planetRad" },
+        React.createElement("h1", null, selectedPlanet.name),
+        React.createElement("section", { className: "infoBoxStats" },
+            React.createElement("div", { className: "stats1" },
+                React.createElement("span", { className: "planetRad" },
                     "Radius: ",
                     selectedPlanet.radius,
-                    "km"),
-                React.createElement("div", { className: "planetDist" },
+                    " km "),
+                React.createElement("span", { className: "spacer" }, " | "),
+                React.createElement("span", { className: "planetDist" },
                     "Distance from Sun: ",
-                    selectedPlanet.sun_distance),
-                React.createElement("div", { className: "planetOrbit" },
+                    selectedPlanet.sun_distance)),
+            React.createElement("div", { className: "stats2" },
+                React.createElement("span", { className: "planetOrbit" },
                     "Orbit Time: ",
                     selectedPlanet.orbit),
-                React.createElement("div", { className: "planetRotation" },
-                    "Rotation Time:",
-                    selectedPlanet.rotation)),
-            React.createElement("section", { className: "infoBoxTxt" },
-                React.createElement("p", null, selectedPlanet.description),
-                React.createElement("div", { className: "planetFacts" },
-                    React.createElement("div", { className: "planetFactsTitle" },
-                        React.createElement("h3", null, "Interesting Facts")),
-                    React.createElement("div", { className: "planetFactsTxt" }, selectedPlanet.facts.map((fact, idx) => {
-                        return (React.createElement("ul", { key: idx },
-                            React.createElement("li", null, fact)));
-                    })))),
-            React.createElement("details", null,
-                React.createElement("summary", { className: "moonCnt" },
-                    selectedPlanet.name,
-                    " has ",
-                    selectedPlanet.moon_num,
-                    " Moon",
-                    selectedPlanet.moon_num > 1 ? "s" : null,
-                    ": "),
-                React.createElement("div", { className: "moonInfoBox" },
-                    React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement("div", { className: "moonTxt" }, moons && Array.isArray(moons) ? moons.map((moon) => {
-                        console.log(moon);
-                        return (React.createElement(MoonInfo, { key: moon.id, moon: moon }));
-                    }) : 'Loading...')) : 'This planet has no moons.')))),
+                React.createElement("span", { className: "spacer" }, "  |  "),
+                React.createElement("span", { className: "planetRotation" },
+                    "Rotation Time: ",
+                    selectedPlanet.rotation))),
+        React.createElement("section", { className: "infoBoxTxt" },
+            React.createElement("p", null,
+                selectedPlanet.name,
+                " is a ",
+                selectedPlanet.type === "rocky" ? "terrestrial" : "jovian",
+                " planet meaning it is ",
+                selectedPlanet.type === "gas" ? "a gas giant" : "rocky",
+                " and it is the ",
+                selectedPlanet.id,
+                selectedPlanet.id === 1 ? "st" : null,
+                selectedPlanet.id === 2 ? "nd" : null,
+                selectedPlanet.id === 3 ? "rd" : null,
+                selectedPlanet.id >= 4 ? "th" : null,
+                " planet from the sun."),
+            React.createElement("p", null, selectedPlanet.name_origin),
+            React.createElement("div", { className: "planetFacts" },
+                React.createElement("h3", null,
+                    "More about ",
+                    selectedPlanet.name),
+                React.createElement("div", { className: "planetFactsTxt" }, selectedPlanet.facts.map((fact, idx) => {
+                    return (React.createElement("ul", { key: idx },
+                        React.createElement("li", null, fact)));
+                })))),
+        React.createElement("details", null,
+            React.createElement("summary", { className: "moonCnt" },
+                selectedPlanet.name,
+                " has ",
+                selectedPlanet.moon_num,
+                " Moon",
+                selectedPlanet.moon_num === 1 ? null : "s",
+                ": "),
+            React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement(React.Fragment, null, moons && Array.isArray(moons) ? moons.map((moon) => {
+                console.log(moon);
+                return (React.createElement(MoonInfo, { key: moon.id, moon: moon }));
+            }) : 'Loading...')) : 'This planet has no moons.')),
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default PlanetInfoBox;

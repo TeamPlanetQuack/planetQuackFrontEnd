@@ -1,17 +1,40 @@
 /* Palette:  f19953 (orange) FBFFFE (white) 1B2735 (background galaxy dark) 06BA63 (green) maybe: 816E94 (purple)*/
 
 body {
-  background: radial-gradient(#1b2735 0%, #090a0f 100%);
-  color: #fbfffe;
-  font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(#1b2735 0%, #090a0f 100%);
+    color: #fbfffe;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-weight: normal;
 }
 
 #planets {
   width: 100%;
 }
 
-#planetsNavBar {
+.space {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.starfield {
+  position: fixed;
+  z-index: -1;
+}
+
+.spaceMinusStars {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header and NavBar */
+
+#planetsNavBar {
+    display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-content: center;
@@ -28,18 +51,35 @@ body {
 }
 
 .sunImg {
-    display:flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sunImg p {
-    width:fit-content;
-    font-size: 280%;
-    white-space: nowrap;
+  width: fit-content;
+  font-size: 280%;
+  white-space: nowrap;
 }
 
 /* Homepage Content CSS */
+
+#homePage {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width<600px) {
+    #homePage {
+        width:95vw;
+    }
+}
+
+#homePage h3 {
+    align-self: center;
+}
 
 .vocab:hover {
   cursor: help;
@@ -64,11 +104,11 @@ a:hover {
 .didYouKnow {
   background: #06ba63;
   color: #fbfffe;
-  font-weight: bold;
+  /* font-weight: bold; */
   width: 80%;
   padding: 10px;
   border-radius: 15px;
-  justify-self: center;
+  align-self: center;
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
@@ -99,11 +139,11 @@ a:hover {
 .definition {
   background: #f19953;
   color: #fbfffe;
-  font-weight: bold;
+  /* font-weight: bold; */
   width: 80%;
   padding: 10px;
   border-radius: 15px;
-  justify-self: center;
+  align-self: center;
   animation: definitionsEaseIn 0.3s ease-in-out;
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
   display: flex;
@@ -118,11 +158,11 @@ a:hover {
 #quizContainer {
   background: #06ba63;
   color: #fbfffe;
-  font-weight: bold;
+  /* font-weight: bold; */
   width: 80%;
   padding: 10px;
   border-radius: 15px;
-  justify-self: center;
+  align-self: center;
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
@@ -141,31 +181,28 @@ a:hover {
   }
 }
 
-.space {
-  position: relative;
-  width: 100%;
-  height: 100%;
+#footer {
+    align-self: stretch;
+    margin-top: 20px;
+    padding: 10px;
+    justify-self: flex-end;
+    font-size: .7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.starfield {
-  position: fixed;
-  z-index: -1;
-}
-
-.spaceMinusStars {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 /* Back to The Solar System Button */
 
 .backToHome {
   background: #f19953;
+  width: fit-content;
   font-size: 100%;
   color: #fbfffe;
   border: none;
   border-radius: 15px;
+  margin: 10px;
   padding: 10px;
   font-weight: bold;
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
@@ -179,6 +216,60 @@ a:hover {
   box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.75);
 }
 
+
+/* Planets and Moons Info CSS */
+
+.infoBox {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (width<600px) {
+      .infoBox {
+          width:95vw;
+      }
+  }
+
+  .stats1, .stats2 {
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+  }
+
+  .spacer {
+    justify-self: center;
+  }
+
+  .planetRad, .planetOrbit {
+    justify-self: end;
+  }
+
+  .infoBox .backToHome {
+    align-self: center;
+  }
+
+  .allMoons {
+    width: 95%;
+    margin:auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: fit-content fit-content fit-content
+  }
+
+  /* Quiz Page CSS */
+
+  #quizPage {
+    width: 80vw;
+  }
+
+  @media (width<600px) {
+    #quizPage {
+        width:95vw;
+    }
+
+/* Nelsons CSS */
+/*
 .wrapper-outer{
   display: flex;
   flex-direction: column;
@@ -218,4 +309,5 @@ a:hover {
 
 .moonTxt ul {
   list-style-type: none;
-}
+
+} */

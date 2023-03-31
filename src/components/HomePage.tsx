@@ -45,7 +45,7 @@ function clickDidYouKnow () {
 
 
   return (
-    <div>
+    <div id="homePage">
       <h1>Our Solar System</h1>
       <p>
         A solar system consists of planets orbiting a star. Our solar system

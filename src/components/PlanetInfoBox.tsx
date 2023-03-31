@@ -13,7 +13,7 @@ type planet = {
   id: number;
   name: string;
   name_origin: string;
-  description: string;
+  type: string;
   facts: Array<string>;
   moon_num: number;
   radius: string;
@@ -22,14 +22,6 @@ type planet = {
   rotation: string;
 };
 
-// type moon = {
-//     id: number;
-//     planet_id: number;
-//     moon_name: string;
-//     discovered: string;
-//     history: string;
-//     moon_radius: string;
-//   }
 
 const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   props: PlanetsNavigationBarProps
@@ -62,28 +54,28 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   return (
     <div className="wrapper-outer">    
     <div className="infoBox">
-      <div className="infoBoxHeader">
-        <div className="infoBoxHeaderTitle">
+
           <h1>{selectedPlanet!.name}</h1>
-        </div>
-          <h3>{selectedPlanet!.name_origin}</h3>
-        </div>
+
         <section className="infoBoxStats">
-          <div className="planetRad">Radius: {selectedPlanet!.radius}km</div>
-          <div className="planetDist">
+            <div className="stats1">
+          <span className="planetRad">Radius: {selectedPlanet!.radius} km </span>
+          <span className="spacer"> | </span>
+          <span className="planetDist">
             Distance from Sun: {selectedPlanet!.sun_distance}
-          </div>
-          <div className="planetOrbit">Orbit Time: {selectedPlanet!.orbit}</div>
-          <div className="planetRotation">
-            Rotation Time:{selectedPlanet!.rotation}
-          </div>
+          </span></div>
+          <div className="stats2">
+          <span className="planetOrbit">Orbit Time: {selectedPlanet!.orbit}</span>
+          <span className="spacer">  |  </span>
+          <span className="planetRotation">
+            Rotation Time: {selectedPlanet!.rotation}
+          </span></div>
         </section>
         <section className="infoBoxTxt">
-          <p>{selectedPlanet!.description}</p>
+          <p>{selectedPlanet!.name} is a {selectedPlanet!.type==="rocky" ? "terrestrial": "jovian"} planet meaning it is {selectedPlanet!.type==="gas"? "a gas giant" : "rocky"} and it is the {selectedPlanet!.id}{selectedPlanet!.id===1 ? "st" : null}{selectedPlanet!.id===2 ? "nd" : null}{selectedPlanet!.id===3 ? "rd" : null}{selectedPlanet!.id>=4 ? "th" : null} planet from the sun.</p>
+          <p>{selectedPlanet!.name_origin}</p>
           <div className="planetFacts">
-            <div className="planetFactsTitle">
-              <h3>Interesting Facts</h3>
-            </div>
+              <h3>More about {selectedPlanet!.name}</h3>
             <div className="planetFactsTxt">
               {selectedPlanet!.facts.map((fact: string, idx: number) => {
                 return (
@@ -96,23 +88,27 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
           </div>
         </section>
         <details>
-        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon(s): </summary>
-          <div className="moonInfoBox">
+
+        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon{selectedPlanet!.moon_num===1 ? null: "s"}: </summary>
+
+
             <div className="allMoons">
               {selectedPlanet!.moon_num > 0 ? (
-                <div className="moonTxt">
+                <>
                   { moons && Array.isArray(moons) ? moons.map((moon: any) => {
                     console.log(moon);
                     return (
                         <MoonInfo key={moon!.id} moon={moon}/>
                     );
                   }): 'Loading...'}
-                </div>
+                </>
 
               ): 'This planet has no moons.'}
             </div>
-          </div></details>
-    </div>
+
+          </details>
+      
+
       <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System
       </button>

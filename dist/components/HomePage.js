@@ -41,7 +41,7 @@ const HomePage = () => {
             didYouKnowAfter.classList.add("hidden");
         }
     }
-    return (React.createElement("div", null,
+    return (React.createElement("div", { id: "homePage" },
         React.createElement("h1", null, "Our Solar System"),
         React.createElement("p", null,
             "A solar system consists of planets orbiting a star. Our solar system consists of the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Neptune, and Uranus orbiting the Sun. There is also an asteroid belt between Mars and Jupiter. The asteroid belt contains thousands of space rocks that are not quite big enough to be planets themselves, but they also ",

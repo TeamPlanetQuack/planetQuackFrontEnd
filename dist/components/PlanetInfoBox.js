@@ -1,23 +1,55 @@
-import React from //  { useState, useEffect }
- "react";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { MoonInfo } from "./";
+import { getMoonsByPlanetId } from "../api-adapter";
+// type moon = {
+//     id: number;
+//     planet_id: number;
+//     moon_name: string;
+//     discovered: string;
+//     history: string;
+//     moon_radius: string;
+//   }
 const PlanetInfoBox = (props) => {
     const selectedPlanet = props.selectedPlanet;
     const setSelectedPlanet = props.setSelectedPlanet;
+    const [moons, setMoons] = useState([]);
+    // const setMoons = props.setMoons;
+    console.log(moons);
     const navigate = useNavigate();
     function clickedBack() {
         setSelectedPlanet(null);
         navigate("/");
     }
+    useEffect(() => {
+        function fetchMoons() {
+            return __awaiter(this, void 0, void 0, function* () {
+                if (!selectedPlanet) {
+                    return;
+                }
+                else {
+                    const fetchedMoons = yield getMoonsByPlanetId(selectedPlanet.id);
+                    setMoons(fetchedMoons);
+                }
+            });
+        }
+        fetchMoons();
+    }, [selectedPlanet]);
     return (React.createElement("div", { className: "infoBox" },
         React.createElement("div", { className: "infoBoxHeader" },
             React.createElement("div", { className: "infoBoxHeaderTitle" },
                 React.createElement("h1", null, selectedPlanet.name),
                 React.createElement("h3", null, selectedPlanet.name_origin)),
             React.createElement("section", { className: "infoBoxStats" },
-                React.createElement("div", { className: "moonCnt" },
-                    "Moons: ",
-                    selectedPlanet.moon_num),
                 React.createElement("div", { className: "planetRad" },
                     "Radius: ",
                     selectedPlanet.radius,
@@ -39,7 +71,20 @@ const PlanetInfoBox = (props) => {
                     React.createElement("div", { className: "planetFactsTxt" }, selectedPlanet.facts.map((fact, idx) => {
                         return (React.createElement("ul", { key: idx },
                             React.createElement("li", null, fact)));
-                    }))))),
+                    })))),
+            React.createElement("details", null,
+                React.createElement("summary", { className: "moonCnt" },
+                    selectedPlanet.name,
+                    " has ",
+                    selectedPlanet.moon_num,
+                    " Moon",
+                    selectedPlanet.moon_num > 1 ? "s" : null,
+                    ": "),
+                React.createElement("div", { className: "moonInfoBox" },
+                    React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement("div", { className: "moonTxt" }, moons && Array.isArray(moons) ? moons.map((moon) => {
+                        console.log(moon);
+                        return (React.createElement(MoonInfo, { key: moon.id, moon: moon }));
+                    }) : 'Loading...')) : 'This planet has no moons.')))),
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default PlanetInfoBox;

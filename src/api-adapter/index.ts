@@ -16,3 +16,14 @@ export async function getTenQuizQuestions() {
     } catch (error) {
         throw error;
     }}
+
+export async function getMoonsByPlanetId(planetId: number) {  
+    try {
+        const response = await fetch (`http://localhost:8080/api/moons/planet/${planetId}`);
+        const moons = await response.json();
+        console.log(moons);
+        return moons;
+    } catch (error) {
+        throw error;
+    }
+}  

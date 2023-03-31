@@ -1,6 +1,6 @@
-import React from //  { useState, useEffect }
- "react";
-import { Quiz } from "./";
+import React from "react";
+import { Footer } from "./";
+import { NavLink } from "react-router-dom";
 const HomePage = () => {
     function defineOrbit() {
         const definition = document.getElementById("orbitDef");
@@ -44,9 +44,7 @@ const HomePage = () => {
     return (React.createElement("div", null,
         React.createElement("h1", null, "Our Solar System"),
         React.createElement("p", null,
-            "A solar system consists of planets orbiting a star. Our solar system consists of the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Neptune, and Uranus orbiting the ",
-            React.createElement("a", { href: "#" }, "Sun"),
-            ". There is also an asteroid belt between Mars and Jupiter. The asteroid belt contains thousands of space rocks that are not quite big enough to be planets themselves, but they also ",
+            "A solar system consists of planets orbiting a star. Our solar system consists of the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Neptune, and Uranus orbiting the Sun. There is also an asteroid belt between Mars and Jupiter. The asteroid belt contains thousands of space rocks that are not quite big enough to be planets themselves, but they also ",
             React.createElement("span", { className: "vocab", onClick: defineOrbit }, "orbit"),
             " our sun."),
         React.createElement("div", { className: "definition hidden", id: "orbitDef" }, "Orbit - to travel around an object in space in a circular or elliptical path"),
@@ -69,8 +67,11 @@ const HomePage = () => {
         React.createElement("div", { className: "definition hidden", id: "dwarfDef" }, "Dwarf Planet - an object in space that is similar to a planet but they do not have an orbital path that is clear of other materials"),
         React.createElement("h3", null, "Click each of the planet icons to learn more!"),
         React.createElement("div", { id: "quizContainer" },
-            React.createElement("p", null, "Would you like to check your knowledge on our solar system? After exploring the different planets and moons in the solar system come back to see what you've learned with the quiz below!"),
-            React.createElement(Quiz, null))));
+            React.createElement("p", null,
+                "Would you like to check your knowledge on our solar system? After exploring the different planets and moons in the solar system ",
+                React.createElement(NavLink, { to: "/quiz" }, "try this quiz"),
+                " to see what you've learned!")),
+        React.createElement(Footer, null)));
 };
 export default HomePage;
 //# sourceMappingURL=HomePage.js.map

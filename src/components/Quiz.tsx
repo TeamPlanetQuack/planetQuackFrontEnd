@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getTenQuizQuestions } from "../api-adapter";
+import { useNavigate } from "react-router-dom";
 
 type Question = {
   question: string;
@@ -14,6 +15,7 @@ const Quiz = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [score, setScore] = useState<number>(0);
   const [showResult, setShowResult] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   function shuffleAnswers(question: Question): string[] {
     const answers = [question.correct_answer, ...question.incorrect_answers];
@@ -72,6 +74,10 @@ const Quiz = () => {
     const updatedQuestions = [...questions];
     updatedQuestions[questionIndex].selectedAnswer = answer;
     setQuestions(updatedQuestions);
+  }
+
+  function clickedBack() {
+    navigate("/");
   }
 
   return (
@@ -135,6 +141,9 @@ const Quiz = () => {
           <button type="submit">Submit</button>
         </form>
       )}
+            <button className="backToHome" onClick={clickedBack}>
+        ← Back to The Solar System
+      </button>
     </div>
   );
 };

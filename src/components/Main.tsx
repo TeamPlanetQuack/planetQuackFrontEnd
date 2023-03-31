@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg } from "./";
+import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg, Quiz } from "./";
 import { getAllPlanets } from "../api-adapter";
 
 const Main = () => {
@@ -27,6 +27,7 @@ const Main = () => {
         <PlanetsNavigationBar allPlanets={allPlanets} selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet}/>
         {!selectedPlanet ? <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/quiz" element={<Quiz />} />
         </Routes>: null}
         </div>
       </div>

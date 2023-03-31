@@ -1,6 +1,6 @@
-import React from //  { useState, useEffect }
-"react";
-import {Quiz} from "./"
+import React from "react";
+import { Footer } from "./"
+import { NavLink } from "react-router-dom"
 
 const HomePage: React.FC = () => {
 
@@ -50,7 +50,7 @@ function clickDidYouKnow () {
       <p>
         A solar system consists of planets orbiting a star. Our solar system
         consists of the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn,
-        Neptune, and Uranus orbiting the <a href="#">Sun</a>. There is also an
+        Neptune, and Uranus orbiting the Sun. There is also an
         asteroid belt between Mars and Jupiter. The asteroid belt contains
         thousands of space rocks that are not quite big enough to be planets
         themselves, but they also <span className="vocab" onClick={defineOrbit}>orbit</span> our sun.
@@ -109,10 +109,10 @@ function clickDidYouKnow () {
     <div id="quizContainer">
       <p>
         Would you like to check your knowledge on our solar system? After
-        exploring the different planets and moons in the solar system come back
-        to see what you've learned with the quiz below!
+        exploring the different planets and moons in the solar system <NavLink to="/quiz">try this quiz</NavLink> to see what you've learned!
       </p>
-      <Quiz /></div>
+      </div>
+      <Footer />
     </div>
   );
 };

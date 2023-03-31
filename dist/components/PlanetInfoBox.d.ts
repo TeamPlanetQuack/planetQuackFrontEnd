@@ -7,7 +7,7 @@ type planet = {
     id: number;
     name: string;
     name_origin: string;
-    description: string;
+    type: string;
     facts: Array<string>;
     moon_num: number;
     radius: string;

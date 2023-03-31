@@ -11,14 +11,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MoonInfo } from "./";
 import { getMoonsByPlanetId } from "../api-adapter";
-// type moon = {
-//     id: number;
-//     planet_id: number;
-//     moon_name: string;
-//     discovered: string;
-//     history: string;
-//     moon_radius: string;
-//   }
 const PlanetInfoBox = (props) => {
     const selectedPlanet = props.selectedPlanet;
     const setSelectedPlanet = props.setSelectedPlanet;
@@ -66,9 +58,21 @@ const PlanetInfoBox = (props) => {
                     React.createElement("span", { className: "planetRotation" },
                         "Rotation Time: ",
                         selectedPlanet.rotation)),
+                React.createElement("p", null,
+                    selectedPlanet.name,
+                    " is a ",
+                    selectedPlanet.type === "rocky" ? "terrestrial" : "jovian",
+                    " planet meaning it is ",
+                    selectedPlanet.type === "gas" ? "a gas giant" : "rocky",
+                    " and it is the ",
+                    selectedPlanet.id,
+                    selectedPlanet.id === 1 ? "st" : null,
+                    selectedPlanet.id === 2 ? "nd" : null,
+                    selectedPlanet.id === 3 ? "rd" : null,
+                    selectedPlanet.id >= 4 ? "th" : null,
+                    " planet from the sun."),
                 React.createElement("p", null, selectedPlanet.name_origin)),
             React.createElement("section", { className: "infoBoxTxt" },
-                React.createElement("p", null, selectedPlanet.description),
                 React.createElement("div", { className: "planetFacts" },
                     React.createElement("div", { className: "planetFactsTitle" },
                         React.createElement("h3", null,

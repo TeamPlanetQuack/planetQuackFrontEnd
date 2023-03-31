@@ -13,7 +13,7 @@ type planet = {
   id: number;
   name: string;
   name_origin: string;
-  description: string;
+  type: string;
   facts: Array<string>;
   moon_num: number;
   radius: string;
@@ -22,14 +22,6 @@ type planet = {
   rotation: string;
 };
 
-// type moon = {
-//     id: number;
-//     planet_id: number;
-//     moon_name: string;
-//     discovered: string;
-//     history: string;
-//     moon_radius: string;
-//   }
 
 const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   props: PlanetsNavigationBarProps
@@ -78,10 +70,10 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
           <span className="planetRotation">
             Rotation Time: {selectedPlanet!.rotation}
           </span></div>
+          <p>{selectedPlanet!.name} is a {selectedPlanet!.type==="rocky" ? "terrestrial": "jovian"} planet meaning it is {selectedPlanet!.type==="gas"? "a gas giant" : "rocky"} and it is the {selectedPlanet!.id}{selectedPlanet!.id===1 ? "st" : null}{selectedPlanet!.id===2 ? "nd" : null}{selectedPlanet!.id===3 ? "rd" : null}{selectedPlanet!.id>=4 ? "th" : null} planet from the sun.</p>
           <p>{selectedPlanet!.name_origin}</p>
         </section>
         <section className="infoBoxTxt">
-          <p>{selectedPlanet!.description}</p>
           <div className="planetFacts">
             <div className="planetFactsTitle">
               <h3>More about {selectedPlanet!.name}</h3>

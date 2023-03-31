@@ -27,6 +27,8 @@ const DwarfPlanets = () => {
     }
     console.log(allDwarfs);
     return (React.createElement("div", { className: "dwarfPlanets" },
+        React.createElement("h1", null, "Dwarf Planets"),
+        allDwarfs.map((dwarf) => (React.createElement("h3", null, dwarf.name))),
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default DwarfPlanets;

@@ -29,9 +29,8 @@ export async function getMoonsByPlanetId(planetId: number) {
 
 export async function getDwarfPlanets () {
     try {
-        const response = await fetch (`http://localhost:8080/api/dwarf_planets`);
+        const response = await fetch ('http://localhost:8080/api/dwarf_planets');
         const dwarfs = await response.json();
-        console.log(dwarfs);
         return dwarfs;
     } catch (error) {
         throw error

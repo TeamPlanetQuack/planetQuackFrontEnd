@@ -64,23 +64,27 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
       <div className="infoBoxHeader">
         <div className="infoBoxHeaderTitle">
           <h1>{selectedPlanet!.name}</h1>
-          <h3>{selectedPlanet!.name_origin}</h3>
         </div>
         <section className="infoBoxStats">
-          <div className="planetRad">Radius: {selectedPlanet!.radius}km</div>
-          <div className="planetDist">
+            <div className="stats1">
+          <span className="planetRad">Radius: {selectedPlanet!.radius} km </span>
+          <span className="spacer"> | </span>
+          <span className="planetDist">
             Distance from Sun: {selectedPlanet!.sun_distance}
-          </div>
-          <div className="planetOrbit">Orbit Time: {selectedPlanet!.orbit}</div>
-          <div className="planetRotation">
-            Rotation Time:{selectedPlanet!.rotation}
-          </div>
+          </span></div>
+          <div className="stats2">
+          <span className="planetOrbit">Orbit Time: {selectedPlanet!.orbit}</span>
+          <span className="spacer">  |  </span>
+          <span className="planetRotation">
+            Rotation Time: {selectedPlanet!.rotation}
+          </span></div>
+          <p>{selectedPlanet!.name_origin}</p>
         </section>
         <section className="infoBoxTxt">
           <p>{selectedPlanet!.description}</p>
           <div className="planetFacts">
             <div className="planetFactsTitle">
-              <h3>Interesting Facts</h3>
+              <h3>More about {selectedPlanet!.name}</h3>
             </div>
             <div className="planetFactsTxt">
               {selectedPlanet!.facts.map((fact: string, idx: number) => {
@@ -94,7 +98,7 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
           </div>
         </section>
         <details>
-        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon{selectedPlanet!.moon_num>1 ? "s": null}: </summary>
+        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon{selectedPlanet!.moon_num===1 ? null: "s"}: </summary>
           <div className="moonInfoBox">
             <div className="allMoons">
               {selectedPlanet!.moon_num > 0 ? (

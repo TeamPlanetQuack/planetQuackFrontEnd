@@ -60,10 +60,12 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   }, [selectedPlanet]);
 
   return (
+    <div className="wrapper-outer">    
     <div className="infoBox">
       <div className="infoBoxHeader">
         <div className="infoBoxHeaderTitle">
           <h1>{selectedPlanet!.name}</h1>
+        </div>
           <h3>{selectedPlanet!.name_origin}</h3>
         </div>
         <section className="infoBoxStats">
@@ -94,7 +96,7 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
           </div>
         </section>
         <details>
-        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon{selectedPlanet!.moon_num>1 ? "s": null}: </summary>
+        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon(s): </summary>
           <div className="moonInfoBox">
             <div className="allMoons">
               {selectedPlanet!.moon_num > 0 ? (
@@ -110,11 +112,12 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
               ): 'This planet has no moons.'}
             </div>
           </div></details>
-      </div>
+    </div>
       <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System
       </button>
     </div>
+
   );
 };
 

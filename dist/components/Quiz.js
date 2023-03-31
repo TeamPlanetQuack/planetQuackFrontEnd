@@ -58,14 +58,15 @@ const Quiz = () => {
     function clickedBack() {
         navigate("/");
     }
-    return (React.createElement("div", null,
+    return (React.createElement("div", { id: "quizPage" },
+        React.createElement("h1", null, "Solar System Quiz"),
         showResult ? (React.createElement("div", null,
             React.createElement("p", null,
                 "You scored ",
                 score,
                 " out of 10!"),
             questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
-                React.createElement("h3", null, question.question),
+                React.createElement("p", null, question.question),
                 question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
                     React.createElement("label", null,
                         React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer), disabled: true }),
@@ -74,7 +75,7 @@ const Quiz = () => {
                     "Incorrect. The correct answer was: ",
                     question.correct_answer))))))) : (React.createElement("form", { onSubmit: handleSubmit },
             questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
-                React.createElement("h3", null, question.question),
+                React.createElement("p", null, question.question),
                 question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
                     React.createElement("label", null,
                         React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer) }),

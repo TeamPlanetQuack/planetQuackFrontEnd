@@ -52,7 +52,6 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   }, [selectedPlanet]);
 
   return (
-    <div className="wrapper-outer">    
     <div className="infoBox">
 
           <h1>{selectedPlanet!.name}</h1>
@@ -116,5 +115,6 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
 
   );
 };
+
 
 export default PlanetInfoBox;

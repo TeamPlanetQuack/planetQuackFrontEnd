@@ -7,6 +7,8 @@ import PlanetInfoBox from "./PlanetInfoBox";
   allPlanets: Array<Object>;
   selectedPlanet: planet | null;
   setSelectedPlanet: Function;
+  moons: Array<Object>;
+  setMoons: Function;
 }
 
 type planet = {
@@ -27,6 +29,8 @@ const PlanetsNavigationBar: React.FC<PlanetsNavigationBarProps> = (props: Planet
     const allPlanets = props.allPlanets;
     const selectedPlanet = props.selectedPlanet;
     const setSelectedPlanet = props.setSelectedPlanet;
+    const moons = props.moons;
+    const setMoons = props.setMoons;
     
 
     const handleInfoBox = (planet: planet) => {
@@ -46,7 +50,7 @@ const PlanetsNavigationBar: React.FC<PlanetsNavigationBarProps> = (props: Planet
           );
          }) : 'Loading...'}</div>
          {selectedPlanet && (
-            <PlanetInfoBox selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet}/>
+            <PlanetInfoBox selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet} moons={moons} setMoons={setMoons}/>
            
 
          )}

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 interface PlanetsNavigationBarProps {
   selectedPlanet: planet | null;
   setSelectedPlanet: Function;
+  moons: Array<Object>;
+  setMoons: Function;
 }
 
 type planet = {
@@ -20,11 +22,21 @@ type planet = {
   rotation: string;
 };
 
+// type moon = {
+//   id: number;
+//   name: string;
+//   name_origin: string;
+// }
+
 const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   props: PlanetsNavigationBarProps
 ) => {
   const selectedPlanet = props.selectedPlanet;
   const setSelectedPlanet = props.setSelectedPlanet;
+  const moons = props.moons;
+  // const setMoons = props.setMoons;
+  console.log(moons);
+
   const navigate = useNavigate();
 
   function clickedBack() {
@@ -41,6 +53,22 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
         </div>
         <section className="infoBoxStats">
           <div className="moonCnt">Moons: {selectedPlanet!.moon_num}</div>
+          <div className="moonInfoBox">
+            <div className="allMoons">
+              {selectedPlanet!.moon_num > 0 ? (
+                <div className="moonTxt">
+                  { Array.isArray(moons) ? moons.map((moon: any) => {
+                    return (
+                      <ul key={moon.id}>
+                        <li>{moon.moon_name}</li>
+                      </ul>
+                    );
+                  }): 'Loading...'}
+                </div>
+
+              ): 'This planet has no moons.'}
+            </div>
+          </div>
           <div className="planetRad">Radius: {selectedPlanet!.radius}km</div>
           <div className="planetDist">
             Distance from Sun: {selectedPlanet!.sun_distance}

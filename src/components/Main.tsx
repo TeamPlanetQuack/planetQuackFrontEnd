@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg, Quiz } from "./";
+import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg, Quiz, DwarfPlanets } from "./";
 import { getAllPlanets } from "../api-adapter";
 
 
@@ -34,6 +34,7 @@ const Main = () => {
         {!selectedPlanet ? <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path='/dwarfplanets' element={<DwarfPlanets/>} />
         </Routes>: null}
         </div>
       </div>

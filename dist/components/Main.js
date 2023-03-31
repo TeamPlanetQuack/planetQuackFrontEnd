@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg, Quiz } from "./";
+import { PlanetsNavigationBar, SolarSystemHeader, HomePage, StarBg, Quiz, DwarfPlanets } from "./";
 import { getAllPlanets } from "../api-adapter";
 const Main = () => {
     const [allPlanets, setAllPlanets] = useState([]);
@@ -32,7 +32,8 @@ const Main = () => {
                     React.createElement(PlanetsNavigationBar, { allPlanets: allPlanets, selectedPlanet: selectedPlanet, setSelectedPlanet: setSelectedPlanet }),
                     !selectedPlanet ? React.createElement(Routes, null,
                         React.createElement(Route, { path: "/", element: React.createElement(HomePage, null) }),
-                        React.createElement(Route, { path: "/quiz", element: React.createElement(Quiz, null) })) : null)))));
+                        React.createElement(Route, { path: "/quiz", element: React.createElement(Quiz, null) }),
+                        React.createElement(Route, { path: '/dwarfplanets', element: React.createElement(DwarfPlanets, null) })) : null)))));
 };
 export default Main;
 //# sourceMappingURL=Main.js.map

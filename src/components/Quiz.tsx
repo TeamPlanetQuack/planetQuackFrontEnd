@@ -11,7 +11,7 @@ type Question = {
   isCorrect: null | boolean;
 };
 
-const Quiz = () => {
+const Quiz: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [score, setScore] = useState<number>(0);
   const [showResult, setShowResult] = useState<boolean>(false);

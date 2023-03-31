@@ -6,3 +6,4 @@ export { default as Quiz } from './Quiz';
 export { default as PlanetInfoBox } from './PlanetInfoBox';
 export { default as Footer } from './Footer';
 export { default as MoonInfo } from './MoonInfo';
+export { default as DwarfPlanets } from './DwarfPlanets';

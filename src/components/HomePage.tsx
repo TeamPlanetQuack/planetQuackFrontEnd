@@ -102,6 +102,8 @@ function clickDidYouKnow () {
       <div className="definition hidden" id="dwarfDef">
         Dwarf Planet - an object in space that is similar to a planet but they
         do not have an orbital path that is clear of other materials
+
+        <NavLink to="/dwarfplanets">Click Here to learn more about Dwarf Planets</NavLink>
       </div>
 
       <h3>Click each of the planet icons to learn more!</h3>

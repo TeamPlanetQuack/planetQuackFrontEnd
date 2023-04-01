@@ -15,8 +15,6 @@ const PlanetInfoBox = (props) => {
     const selectedPlanet = props.selectedPlanet;
     const setSelectedPlanet = props.setSelectedPlanet;
     const [moons, setMoons] = useState([]);
-    // const setMoons = props.setMoons;
-    console.log(moons);
     const navigate = useNavigate();
     function clickedBack() {
         setSelectedPlanet(null);
@@ -43,7 +41,8 @@ const PlanetInfoBox = (props) => {
                 React.createElement("span", { className: "planetRad" },
                     "Radius: ",
                     selectedPlanet.radius,
-                    " km "),
+                    " km",
+                    " "),
                 React.createElement("span", { className: "spacer" }, " | "),
                 React.createElement("span", { className: "planetDist" },
                     "Distance from Sun: ",
@@ -52,16 +51,18 @@ const PlanetInfoBox = (props) => {
                 React.createElement("span", { className: "planetOrbit" },
                     "Orbit Time: ",
                     selectedPlanet.orbit),
-                React.createElement("span", { className: "spacer" }, "  |  "),
+                React.createElement("span", { className: "spacer" }, " | "),
                 React.createElement("span", { className: "planetRotation" },
                     "Rotation Time: ",
                     selectedPlanet.rotation))),
         React.createElement("section", { className: "infoBoxTxt" },
             React.createElement("p", null,
                 selectedPlanet.name,
-                " is a ",
+                " is a",
+                " ",
                 selectedPlanet.type === "rocky" ? "terrestrial" : "jovian",
-                " planet meaning it is ",
+                " planet meaning it is",
+                " ",
                 selectedPlanet.type === "gas" ? "a gas giant" : "rocky",
                 " and it is the ",
                 selectedPlanet.id,
@@ -86,11 +87,13 @@ const PlanetInfoBox = (props) => {
                 selectedPlanet.moon_num,
                 " Moon",
                 selectedPlanet.moon_num === 1 ? null : "s",
-                ": "),
-            React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement(React.Fragment, null, moons && Array.isArray(moons) ? moons.map((moon) => {
-                console.log(moon);
-                return (React.createElement(MoonInfo, { key: moon.id, moon: moon }));
-            }) : 'Loading...')) : 'This planet has no moons.')),
+                ":",
+                " "),
+            React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement(React.Fragment, null, moons && Array.isArray(moons)
+                ? moons.map((moon) => {
+                    return React.createElement(MoonInfo, { key: moon.id, moon: moon });
+                })
+                : "Loading...")) : ("This planet has no moons."))),
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default PlanetInfoBox;

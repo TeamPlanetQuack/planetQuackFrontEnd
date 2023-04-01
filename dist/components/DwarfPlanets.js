@@ -25,10 +25,39 @@ const DwarfPlanets = () => {
     function clickedBack() {
         navigate("/");
     }
-    console.log(allDwarfs);
     return (React.createElement("div", { className: "dwarfPlanets" },
         React.createElement("h1", null, "Dwarf Planets"),
-        allDwarfs.map((dwarf) => (React.createElement("h3", null, dwarf.name))),
+        allDwarfs.map((dwarf) => (React.createElement("div", { key: dwarf.id, className: "dwarfInfo" },
+            React.createElement("h3", null, dwarf.name),
+            React.createElement("section", { className: "infoBoxStats" },
+                React.createElement("div", { className: "stats1" },
+                    React.createElement("span", { className: "planetRad" },
+                        "Radius: ",
+                        dwarf.radius,
+                        " km "),
+                    React.createElement("span", { className: "spacer" }, " | "),
+                    React.createElement("span", { className: "planetDist" },
+                        "Distance from Sun: ",
+                        dwarf.sun_distance)),
+                React.createElement("div", { className: "stats2" },
+                    React.createElement("span", { className: "planetOrbit" },
+                        "Orbit Time: ",
+                        dwarf.orbit),
+                    React.createElement("span", { className: "spacer" }, " | "),
+                    React.createElement("span", { className: "planetRotation" },
+                        "Rotation Time: ",
+                        dwarf.rotation))),
+            React.createElement("section", { className: "infoBoxTxt" },
+                React.createElement("p", null, dwarf.name_origin),
+                React.createElement("div", { className: "planetFacts" },
+                    React.createElement("h3", null,
+                        "More about ",
+                        dwarf.name),
+                    React.createElement("div", { className: "planetFactsTxt" }, dwarf.facts.map((fact, idx) => {
+                        return (React.createElement("ul", { key: idx },
+                            React.createElement("li", null, fact)));
+                    })))),
+            dwarf.name !== "Eris" ? React.createElement("hr", { className: "solid" }) : null))),
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default DwarfPlanets;

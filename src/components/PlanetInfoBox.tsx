@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 
-"react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { MoonInfo } from "./"
+import { MoonInfo } from "./";
 import { getMoonsByPlanetId } from "../api-adapter";
 
 interface PlanetsNavigationBarProps {
@@ -22,13 +21,12 @@ type planet = {
   rotation: string;
 };
 
-
 const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   props: PlanetsNavigationBarProps
 ) => {
   const selectedPlanet = props.selectedPlanet;
   const setSelectedPlanet = props.setSelectedPlanet;
-  const [moons, setMoons] = useState<Array<Object>>([])
+  const [moons, setMoons] = useState<Array<Object>>([]);
   // const setMoons = props.setMoons;
   console.log(moons);
 
@@ -40,7 +38,7 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   }
 
   useEffect(() => {
-    async function fetchMoons(){
+    async function fetchMoons() {
       if (!selectedPlanet) {
         return;
       } else {
@@ -53,68 +51,81 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
 
   return (
     <div className="infoBox">
+      <h1>{selectedPlanet!.name}</h1>
 
-          <h1>{selectedPlanet!.name}</h1>
-
-        <section className="infoBoxStats">
-            <div className="stats1">
-          <span className="planetRad">Radius: {selectedPlanet!.radius} km </span>
+      <section className="infoBoxStats">
+        <div className="stats1">
+          <span className="planetRad">
+            Radius: {selectedPlanet!.radius} km{" "}
+          </span>
           <span className="spacer"> | </span>
           <span className="planetDist">
             Distance from Sun: {selectedPlanet!.sun_distance}
-          </span></div>
-          <div className="stats2">
-          <span className="planetOrbit">Orbit Time: {selectedPlanet!.orbit}</span>
-          <span className="spacer">  |  </span>
+          </span>
+        </div>
+        <div className="stats2">
+          <span className="planetOrbit">
+            Orbit Time: {selectedPlanet!.orbit}
+          </span>
+          <span className="spacer"> | </span>
           <span className="planetRotation">
             Rotation Time: {selectedPlanet!.rotation}
-          </span></div>
-        </section>
-        <section className="infoBoxTxt">
-          <p>{selectedPlanet!.name} is a {selectedPlanet!.type==="rocky" ? "terrestrial": "jovian"} planet meaning it is {selectedPlanet!.type==="gas"? "a gas giant" : "rocky"} and it is the {selectedPlanet!.id}{selectedPlanet!.id===1 ? "st" : null}{selectedPlanet!.id===2 ? "nd" : null}{selectedPlanet!.id===3 ? "rd" : null}{selectedPlanet!.id>=4 ? "th" : null} planet from the sun.</p>
-          <p>{selectedPlanet!.name_origin}</p>
-          <div className="planetFacts">
-              <h3>More about {selectedPlanet!.name}</h3>
-            <div className="planetFactsTxt">
-              {selectedPlanet!.facts.map((fact: string, idx: number) => {
-                return (
-                  <ul key={idx}>
-                    <li>{fact}</li>
-                  </ul>
-                );
-              })}
-            </div>
+          </span>
+        </div>
+      </section>
+      <section className="infoBoxTxt">
+        <p>
+          {selectedPlanet!.name} is a{" "}
+          {selectedPlanet!.type === "rocky" ? "terrestrial" : "jovian"} planet
+          meaning it is{" "}
+          {selectedPlanet!.type === "gas" ? "a gas giant" : "rocky"} and it is
+          the {selectedPlanet!.id}
+          {selectedPlanet!.id === 1 ? "st" : null}
+          {selectedPlanet!.id === 2 ? "nd" : null}
+          {selectedPlanet!.id === 3 ? "rd" : null}
+          {selectedPlanet!.id >= 4 ? "th" : null} planet from the sun.
+        </p>
+        <p>{selectedPlanet!.name_origin}</p>
+        <div className="planetFacts">
+          <h3>More about {selectedPlanet!.name}</h3>
+          <div className="planetFactsTxt">
+            {selectedPlanet!.facts.map((fact: string, idx: number) => {
+              return (
+                <ul key={idx}>
+                  <li>{fact}</li>
+                </ul>
+              );
+            })}
           </div>
-        </section>
-        <details>
+        </div>
+      </section>
+      <details>
+        <summary className="moonCnt">
+          {selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon
+          {selectedPlanet!.moon_num === 1 ? null : "s"}:{" "}
+        </summary>
 
-        <summary className="moonCnt">{selectedPlanet!.name} has {selectedPlanet!.moon_num} Moon{selectedPlanet!.moon_num===1 ? null: "s"}: </summary>
-
-
-            <div className="allMoons">
-              {selectedPlanet!.moon_num > 0 ? (
-                <>
-                  { moons && Array.isArray(moons) ? moons.map((moon: any) => {
+        <div className="allMoons">
+          {selectedPlanet!.moon_num > 0 ? (
+            <>
+              {moons && Array.isArray(moons)
+                ? moons.map((moon: any) => {
                     console.log(moon);
-                    return (
-                        <MoonInfo key={moon!.id} moon={moon}/>
-                    );
-                  }): 'Loading...'}
-                </>
-
-              ): 'This planet has no moons.'}
-            </div>
-
-          </details>
-      
+                    return <MoonInfo key={moon!.id} moon={moon} />;
+                  })
+                : "Loading..."}
+            </>
+          ) : (
+            "This planet has no moons."
+          )}
+        </div>
+      </details>
 
       <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System
       </button>
     </div>
-
   );
 };
-
 
 export default PlanetInfoBox;

@@ -1,10 +1,10 @@
-import React 
-//  { useState, useEffect } 
-from "react";
+import React from //  { useState, useEffect }
+ "react";
 const Footer = () => {
     return (React.createElement("div", { id: "footer" },
         React.createElement("p", null,
-            "All information provided on this site was sourced from ",
+            "All information provided on this site was sourced from",
+            " ",
             React.createElement("a", { href: "https://solarsystem.nasa.gov/", target: "_blank" }, "https://solarsystem.nasa.gov/")),
         React.createElement("p", null, "Made by TeamPlanetQuack"),
         React.createElement("ul", null,

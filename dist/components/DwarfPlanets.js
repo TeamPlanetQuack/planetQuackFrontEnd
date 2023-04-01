@@ -44,7 +44,7 @@ const DwarfPlanets = () => {
                     React.createElement("span", { className: "planetOrbit" },
                         "Orbit Time: ",
                         dwarf.orbit),
-                    React.createElement("span", { className: "spacer" }, "  |  "),
+                    React.createElement("span", { className: "spacer" }, " | "),
                     React.createElement("span", { className: "planetRotation" },
                         "Rotation Time: ",
                         dwarf.rotation))),

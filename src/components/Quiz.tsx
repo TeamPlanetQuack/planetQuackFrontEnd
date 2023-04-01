@@ -82,10 +82,12 @@ const Quiz: React.FC = () => {
 
   return (
     <div id="quizPage">
-        <h1>Solar System Quiz</h1>
+      <h1>Solar System Quiz</h1>
       {showResult ? (
         <div>
-          <p>You scored {score} out of 10! {score>=7 ? "Excellent job!":null}</p>
+          <p>
+            You scored {score} out of 10! {score >= 7 ? "Excellent job!" : null}
+          </p>
           {questions.map((question, questionIndex) => (
             <div key={questionIndex}>
               <p>{question.question}</p>
@@ -97,9 +99,7 @@ const Quiz: React.FC = () => {
                       value={answer}
                       name={`question${questionIndex}`}
                       checked={question.selectedAnswer === answer}
-                      onChange={() =>
-                        handleAnswerChange(questionIndex, answer)
-                      }
+                      onChange={() => handleAnswerChange(questionIndex, answer)}
                       disabled
                     />
                     {answer}
@@ -129,9 +129,7 @@ const Quiz: React.FC = () => {
                       value={answer}
                       name={`question${questionIndex}`}
                       checked={question.selectedAnswer === answer}
-                      onChange={() =>
-                        handleAnswerChange(questionIndex, answer)
-                      }
+                      onChange={() => handleAnswerChange(questionIndex, answer)}
                     />
                     {answer}
                   </label>
@@ -139,10 +137,12 @@ const Quiz: React.FC = () => {
               ))}
             </div>
           ))}
-          <button id="submitQuiz" type="submit">Submit</button>
+          <button id="submitQuiz" type="submit">
+            Submit
+          </button>
         </form>
       )}
-            <button className="backToHome" onClick={clickedBack}>
+      <button className="backToHome" onClick={clickedBack}>
         ← Back to The Solar System
       </button>
     </div>

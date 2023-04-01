@@ -1,12 +1,10 @@
-import React
-//  { useState, useEffect } 
- from "react";
- import { useNavigate } from "react-router-dom";
+import React from //  { useState, useEffect }
+"react";
+import { useNavigate } from "react-router-dom";
 
- interface PlanetsNavigationBarProps {
+interface PlanetsNavigationBarProps {
   setSelectedPlanet: Function;
 }
-
 
 const SolarSystemHeader: React.FC<PlanetsNavigationBarProps> = (
   props: PlanetsNavigationBarProps
@@ -18,10 +16,12 @@ const SolarSystemHeader: React.FC<PlanetsNavigationBarProps> = (
     setSelectedPlanet(null);
     navigate("/");
   }
-  
-    return (
-        <div className="sunImg"><p onClick={clickedHome}>The Solar System</p></div>
-    );
-  };
-  
-  export default SolarSystemHeader;
+
+  return (
+    <div className="sunImg">
+      <p onClick={clickedHome}>The Solar System</p>
+    </div>
+  );
+};
+
+export default SolarSystemHeader;

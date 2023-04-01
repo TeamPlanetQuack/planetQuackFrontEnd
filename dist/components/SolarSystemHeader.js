@@ -1,6 +1,5 @@
-import React 
-//  { useState, useEffect } 
-from "react";
+import React from //  { useState, useEffect }
+ "react";
 import { useNavigate } from "react-router-dom";
 const SolarSystemHeader = (props) => {
     const setSelectedPlanet = props.setSelectedPlanet;

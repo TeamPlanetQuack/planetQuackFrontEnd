@@ -85,7 +85,7 @@ const Quiz: React.FC = () => {
         <h1>Solar System Quiz</h1>
       {showResult ? (
         <div>
-          <p>You scored {score} out of 10!</p>
+          <p>You scored {score} out of 10! {score>=7 ? "Excellent job!":null}</p>
           {questions.map((question, questionIndex) => (
             <div key={questionIndex}>
               <p>{question.question}</p>
@@ -139,7 +139,7 @@ const Quiz: React.FC = () => {
               ))}
             </div>
           ))}
-          <button type="submit">Submit</button>
+          <button id="submitQuiz" type="submit">Submit</button>
         </form>
       )}
             <button className="backToHome" onClick={clickedBack}>

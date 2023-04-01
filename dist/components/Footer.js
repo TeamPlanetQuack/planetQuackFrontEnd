@@ -1,5 +1,4 @@
-import React from //  { useState, useEffect }
- "react";
+import React from "react";
 const Footer = () => {
     return (React.createElement("div", { id: "footer" },
         React.createElement("p", null,

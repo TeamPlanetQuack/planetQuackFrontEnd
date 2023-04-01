@@ -27,8 +27,7 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
   const selectedPlanet = props.selectedPlanet;
   const setSelectedPlanet = props.setSelectedPlanet;
   const [moons, setMoons] = useState<Array<Object>>([]);
-  // const setMoons = props.setMoons;
-  console.log(moons);
+
 
   const navigate = useNavigate();
 
@@ -110,7 +109,7 @@ const PlanetInfoBox: React.FC<PlanetsNavigationBarProps> = (
             <>
               {moons && Array.isArray(moons)
                 ? moons.map((moon: any) => {
-                    console.log(moon);
+
                     return <MoonInfo key={moon!.id} moon={moon} />;
                   })
                 : "Loading..."}

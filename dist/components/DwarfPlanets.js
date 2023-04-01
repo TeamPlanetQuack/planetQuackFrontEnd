@@ -25,7 +25,6 @@ const DwarfPlanets = () => {
     function clickedBack() {
         navigate("/");
     }
-    console.log(allDwarfs);
     return (React.createElement("div", { className: "dwarfPlanets" },
         React.createElement("h1", null, "Dwarf Planets"),
         allDwarfs.map((dwarf) => (React.createElement("div", { key: dwarf.id, className: "dwarfInfo" },

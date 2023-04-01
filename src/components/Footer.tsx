@@ -1,5 +1,4 @@
-import React from //  { useState, useEffect }
-"react";
+import React from "react";
 
 const Footer: React.FC = () => {
   return (

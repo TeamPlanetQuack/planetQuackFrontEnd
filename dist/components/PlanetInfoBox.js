@@ -15,8 +15,6 @@ const PlanetInfoBox = (props) => {
     const selectedPlanet = props.selectedPlanet;
     const setSelectedPlanet = props.setSelectedPlanet;
     const [moons, setMoons] = useState([]);
-    // const setMoons = props.setMoons;
-    console.log(moons);
     const navigate = useNavigate();
     function clickedBack() {
         setSelectedPlanet(null);
@@ -93,7 +91,6 @@ const PlanetInfoBox = (props) => {
                 " "),
             React.createElement("div", { className: "allMoons" }, selectedPlanet.moon_num > 0 ? (React.createElement(React.Fragment, null, moons && Array.isArray(moons)
                 ? moons.map((moon) => {
-                    console.log(moon);
                     return React.createElement(MoonInfo, { key: moon.id, moon: moon });
                 })
                 : "Loading...")) : ("This planet has no moons."))),

@@ -64,7 +64,8 @@ const Quiz = () => {
             React.createElement("p", null,
                 "You scored ",
                 score,
-                " out of 10!"),
+                " out of 10! ",
+                score >= 7 ? "Excellent job!" : null),
             questions.map((question, questionIndex) => (React.createElement("div", { key: questionIndex },
                 React.createElement("p", null, question.question),
                 question.answers.map((answer, answerIndex) => (React.createElement("div", { key: answerIndex },
@@ -80,7 +81,7 @@ const Quiz = () => {
                     React.createElement("label", null,
                         React.createElement("input", { type: "radio", value: answer, name: `question${questionIndex}`, checked: question.selectedAnswer === answer, onChange: () => handleAnswerChange(questionIndex, answer) }),
                         answer))))))),
-            React.createElement("button", { type: "submit" }, "Submit"))),
+            React.createElement("button", { id: "submitQuiz", type: "submit" }, "Submit"))),
         React.createElement("button", { className: "backToHome", onClick: clickedBack }, "\u2190 Back to The Solar System")));
 };
 export default Quiz;

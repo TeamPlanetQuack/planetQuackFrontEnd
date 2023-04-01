@@ -30,7 +30,7 @@ const DwarfPlanets: React.FC = () => {
     navigate("/");
   }
 
-  console.log(allDwarfs);
+
 
   return (
     <div className="dwarfPlanets">

@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 export function getAllPlanets() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetch('http://localhost:8080/api/planets');
+            const response = yield fetch("http://localhost:8080/api/planets");
             const planets = yield response.json();
             return planets;
         }
@@ -23,7 +23,7 @@ export function getAllPlanets() {
 export function getTenQuizQuestions() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetch('http://localhost:8080/api/questions/ten');
+            const response = yield fetch("http://localhost:8080/api/questions/ten");
             const tenQuestions = yield response.json();
             return tenQuestions;
         }
@@ -47,7 +47,7 @@ export function getMoonsByPlanetId(planetId) {
 export function getDwarfPlanets() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetch('http://localhost:8080/api/dwarf_planets');
+            const response = yield fetch("http://localhost:8080/api/dwarf_planets");
             const dwarfs = yield response.json();
             return dwarfs;
         }

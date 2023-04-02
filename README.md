@@ -4,7 +4,7 @@
 
 PlanetQuack is an education single-page application showcasing a profile about each of the planets in our solar system. This repository is the front-end repository for our website. In this readme you can find links to the deployment, instructions for viewing the site locally on your computer, screenshots, teammembers, the tech stack used, and the requirements for the Quackathon challenge it was submitted for with descriptions of how we met and/or exceeded those goals. 
 
-<b>Deployment: </b>
+<b>Deployment: </b> https://planetquack.onrender.com/
 
 <b>To start the project locally: </b>
 

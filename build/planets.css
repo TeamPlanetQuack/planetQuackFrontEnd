@@ -1,0 +1,620 @@
+/* All Planets */
+
+.planetImg {
+  border-radius: 50%;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  aspect-ratio: 1;
+  margin: 10px;
+  box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.75);
+  transition: transform 330ms ease-in-out;
+}
+
+.planetImg:hover {
+  transform: scale(1.25) rotateZ(18deg);
+  box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.75);
+}
+
+/* Sun */
+
+.sunImg {
+  border-radius: 50%;
+  /* display: inline-block; */
+  height: 200px;
+  width: 200px;
+  margin: 30px;
+  box-shadow: 0px 0px 15px 5px hsla(6, 75%, 51%);
+  background: radial-gradient(
+    hsl(11deg 79% 53%) 1%,
+    hsl(17deg 82% 53%) 32%,
+    hsl(22deg 84% 53%) 42%,
+    hsl(26deg 86% 53%) 49%,
+    hsl(30deg 88% 53%) 53%,
+    hsl(33deg 90% 54%) 57%,
+    hsl(36deg 92% 54%) 59%,
+    hsl(38deg 93% 54%) 61%,
+    hsl(41deg 94% 54%) 63%,
+    hsl(43deg 95% 54%) 64%,
+    hsl(45deg 96% 54%) 65%,
+    hsl(47deg 97% 54%) 66%,
+    hsl(49deg 98% 54%) 67%,
+    hsl(45deg 94% 53%) 67%,
+    hsl(41deg 91% 53%) 68%,
+    hsl(36deg 87% 53%) 68%,
+    hsl(29deg 83% 52%) 69%,
+    hsl(20deg 79% 51%) 69%,
+    hsl(6, 75%, 51%) 70%,
+    hsla(6, 75%, 51%, 0.752) 75%,
+    hsla(6, 75%, 51%, 0.548) 80%,
+    hsla(6, 75%, 51%, 0.325) 85%,
+    hsla(6, 75%, 51%, 0.152) 90%,
+    hsla(0, 0%, 100%, 0) 95%
+  );
+  animation: sunPulse 2s infinite linear;
+  transition: transform 330ms ease;
+}
+
+@keyframes sunPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mercury */
+
+#Mercury {
+  background-image: linear-gradient(
+    0deg,
+    hsl(0deg 0% 77%) 0%,
+    hsl(0deg 0% 54%) 20%,
+    hsl(0deg 0% 58%) 40%,
+    hsl(0deg 0% 53%) 60%,
+    hsl(0deg 0% 40%) 80%,
+    hsl(0deg 0% 67%) 100%
+  );
+  transform: rotateZ(-18deg);
+}
+
+#Mercury:after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 45px 10px 8px 2px rgba(255, 255, 255, 0.718),
+    10px 50px 8px 2px rgb(38, 38, 38, 0.718),
+    45px 45px 8px 2px rgb(255, 255, 255, 0.718),
+    35px 80px 8px 2px rgb(38, 38, 38, 0.718),
+    75px 50px 8px 2px rgb(255, 255, 255, 0.718);
+}
+
+#Mercury:before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 25px 65px 8px 2px rgb(38, 38, 38, 0.718),
+    65px 75px 8px 2px rgb(255, 255, 255, 0.718),
+    10px 25px 8px 2px rgb(38, 38, 38, 0.718),
+    65px 35px 8px 2px rgb(255, 255, 255, 0.718),
+    25px 40px 8px 2px rgb(38, 38, 38, 0.718);
+}
+
+/* Venus */
+
+#Venus {
+  background-image: linear-gradient(
+    0deg,
+    hsl(228deg 2% 52%) 0%,
+    hsl(224deg 4% 62%) 14%,
+    hsl(223deg 6% 71%) 21%,
+    hsl(222deg 10% 78%) 26%,
+    hsl(222deg 16% 85%) 30%,
+    hsl(226deg 14% 87%) 35%,
+    hsl(265deg 4% 84%) 39%,
+    hsl(5deg 6% 81%) 43%,
+    hsl(21deg 13% 78%) 46%,
+    hsl(25deg 18% 74%) 50%,
+    hsl(26deg 28% 74%) 54%,
+    hsl(27deg 37% 74%) 57%,
+    hsl(27deg 46% 74%) 61%,
+    hsl(28deg 56% 74%) 65%,
+    hsl(28deg 55% 76%) 69%,
+    hsl(27deg 42% 78%) 74%,
+    hsl(26deg 27% 81%) 79%,
+    hsl(24deg 10% 83%) 86%,
+    hsl(207deg 11% 85%) 100%
+  );
+  transform: rotateZ(-18deg);
+}
+
+#Venus:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 22px 5px 8px 1px rgba(255, 255, 255, 0.1),
+    10px 25px 8px 1px rgba(255, 255, 255, 0.2),
+    45px 30px 10px 1px rgba(255, 255, 255, 0.3),
+    45px 45px 8px 1px rgba(255, 255, 255, 0.2),
+    0px 50px 8px 1px rgba(255, 255, 255, 0.1),
+    25px 65px 8px 1px rgba(255, 255, 255, 0.2),
+    35px 80px 10px 1px rgba(255, 255, 255, 0.3),
+    23px 90px 8px 1px rgba(255, 255, 255, 0.1);
+  animation: shiftClouds 2s infinite linear;
+  transition: transform 330ms ease;
+}
+
+/* Earth */
+
+#Earth {
+  background-image: linear-gradient(
+    180deg,
+    hsl(242deg 42% 33%) 0%,
+    hsl(226deg 23% 32%) 20%,
+    hsl(130deg 10% 32%) 29%,
+    hsl(130deg 10% 32%) 36%,
+    hsl(226deg 23% 32%) 43%,
+    hsl(242deg 42% 33%) 50%,
+    hsl(226deg 23% 32%) 57%,
+    hsl(130deg 10% 32%) 64%,
+    hsl(130deg 10% 32%) 71%,
+    hsl(226deg 23% 32%) 80%,
+    hsl(242deg 42% 33%) 100%
+  );
+  transform: rotateZ(-18deg);
+}
+
+#Earth:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 22px 5px 8px 1px rgba(255, 255, 255, 0.1),
+    10px 25px 8px 1px rgba(255, 255, 255, 0.2),
+    /* 45px 30px 10px 1px rgba(255, 255, 255, 0.3), */ 45px 45px 8px 1px
+      rgba(255, 255, 255, 0.2),
+    /* 0px 50px 8px 1px rgba(255, 255, 255, 0.1), */ 25px 65px 8px 1px
+      rgba(255, 255, 255, 0.2),
+    /* 35px 80px 10px 1px rgba(255, 255, 255, 0.3), */ 23px 90px 8px 1px
+      rgba(255, 255, 255, 0.1);
+  animation: shiftClouds 2s infinite linear;
+  transition: transform 330ms ease;
+}
+
+@keyframes shiftClouds {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  25% {
+    transform: translateX(2px) translateY(0px);
+  }
+  50% {
+    transform: translateX(2px) translateY(2px);
+  }
+  75% {
+    transform: translateX(0px) translateY(2px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+/* Mars */
+
+#Mars {
+  background-image: linear-gradient(
+    180deg,
+    hsl(17deg 44% 44%) 0%,
+    hsl(16deg 42% 47%) 14%,
+    hsl(16deg 39% 50%) 21%,
+    hsl(16deg 41% 52%) 26%,
+    hsl(15deg 44% 55%) 30%,
+    hsl(15deg 43% 54%) 35%,
+    hsl(16deg 38% 51%) 39%,
+    hsl(16deg 39% 47%) 43%,
+    hsl(16deg 41% 42%) 46%,
+    hsl(17deg 44% 37%) 50%,
+    hsl(17deg 44% 38%) 54%,
+    hsl(17deg 44% 38%) 57%,
+    hsl(17deg 44% 39%) 61%,
+    hsl(17deg 44% 40%) 65%,
+    hsl(16deg 41% 41%) 69%,
+    hsl(15deg 36% 42%) 74%,
+    hsl(15deg 32% 43%) 79%,
+    hsl(14deg 29% 44%) 86%,
+    hsl(13deg 26% 45%) 100%
+  );
+  transform: rotateZ(-18deg);
+}
+
+#Mars:after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 45px 10px 8px 2px #e68f6b, 45px 45px 8px 2px #e68f6b,
+    60px 50px 8px 2px rgb(38, 38, 38, 0.718), 75px 70px 8px 2px #e68f6b,
+    35px 45px 8px 2px rgb(38, 38, 38, 0.718);
+}
+
+#Mars:before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 80px 50px 8px 2px rgb(38, 38, 38, 0.718),
+    75px 15px 8px 2px #e68f6b, 20px 50px 8px 2px rgb(38, 38, 38, 0.718),
+    70px 45px 8px 2px rgb(38, 38, 38, 0.718), 70px 85px 8px 2px #e68f6b;
+}
+
+/* Jupiter */
+
+#Jupiter {
+  background-image: linear-gradient(
+    180deg,
+    #625541 0%,
+    #967b5f 14%,
+    #beb092 21%,
+    #a4896b 26%,
+    #c4bdaa 30%,
+    #b7a787 35%,
+    #e1e8e1 39%,
+    #d08f6e 43%,
+    #edd8ab 46%,
+    #ffd48f 50%,
+    #f1f3e1 54%,
+    #d1b28a 57%,
+    #f3e4c0 61%,
+    #a1715e 65%,
+    #d8b18a 69%,
+    #dbded3 74%,
+    #d1c7ac 79%,
+    #8d7961 86%,
+    #4a4438 100%
+  );
+  transform: rotateZ(-18deg);
+}
+
+#Jupiter:before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 65px 65px 7px 6px #ea7736;
+  animation: shiftCloudsSubtle 2s infinite linear;
+  transition: transform 330ms ease;
+}
+
+#Jupiter:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 22px 5px 8px 1px rgba(255, 255, 255, 0.1),
+    10px 25px 8px 1px rgba(255, 255, 255, 0.2),
+    45px 30px 10px 1px rgba(255, 255, 255, 0.3),
+    45px 45px 8px 1px rgba(255, 255, 255, 0.2),
+    0px 50px 8px 1px rgba(255, 255, 255, 0.1),
+    25px 65px 8px 1px rgba(255, 255, 255, 0.2),
+    35px 80px 10px 1px rgba(255, 255, 255, 0.3),
+    23px 90px 8px 1px rgba(255, 255, 255, 0.1);
+  animation: shiftClouds 2s infinite linear;
+  transition: transform 330ms ease;
+}
+
+/* Saturn */
+
+#Saturn {
+  background: linear-gradient(
+    hsl(201 11% 30%) 0%,
+    hsl(109 2% 38%) 5%,
+    hsl(50 6% 43%) 10%,
+    hsl(44 9% 48%) 15%,
+    hsl(40 24% 55%) 20%,
+    hsl(39 40% 61%) 35%,
+    hsl(39 60% 67%) 40%,
+    hsl(39 52% 64%) 44%,
+    hsl(38 44% 61%) 49%,
+    hsl(37 37% 58%) 54%,
+    hsl(38 26% 50%) 61%,
+    hsl(41 24% 41%) 80%,
+    hsl(55 17% 28%) 92%
+  );
+  transform-style: preserve-3d;
+  transform: rotateZ(-18deg);
+}
+
+#Saturn:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 16px double #a8a59fc2;
+  border-top-width: 0;
+  border-radius: 50%;
+  animation: srings 1.5s infinite linear;
+  transition: transform 330ms ease;
+}
+
+#Saturn:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 8px double #756d5d9d;
+  border-top-width: 0;
+  border-radius: 50%;
+  animation: srings 1s infinite linear;
+  transition: transform 330ms ease;
+}
+
+@keyframes srings {
+  0% {
+    transform: rotateX(65deg) rotateZ(0deg) scale(1.75);
+  }
+  50% {
+    transform: rotateX(65deg) rotateZ(0deg) scale(1.7);
+  }
+  100% {
+    transform: rotateX(65deg) rotateZ(0deg) scale(1.75);
+  }
+}
+
+/* Uranus */
+
+#Uranus {
+  background-image: linear-gradient(
+    180deg,
+    hsl(182deg 68% 89%) 0%,
+    hsl(182deg 61% 87%) 14%,
+    hsl(183deg 55% 86%) 21%,
+    hsl(183deg 51% 84%) 26%,
+    hsl(184deg 47% 83%) 30%,
+    hsl(184deg 44% 82%) 35%,
+    hsl(184deg 42% 81%) 39%,
+    hsl(184deg 40% 80%) 43%,
+    hsl(184deg 39% 79%) 46%,
+    hsl(184deg 37% 78%) 50%,
+    hsl(185deg 33% 75%) 54%,
+    hsl(186deg 30% 72%) 57%,
+    hsl(187deg 27% 69%) 61%,
+    hsl(188deg 25% 66%) 65%,
+    hsl(189deg 23% 63%) 69%,
+    hsl(189deg 21% 61%) 74%,
+    hsl(189deg 19% 58%) 79%,
+    hsl(190deg 18% 55%) 86%,
+    hsl(191deg 17% 53%) 100%
+  );
+  transform-style: preserve-3d;
+  transform: rotateZ(-18deg);
+}
+
+#Uranus:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 4px double #a8a59fc2;
+  border-top-width: 0;
+  border-radius: 50%;
+  animation: urings 1.5s infinite linear;
+  transition: transform 330ms ease;
+}
+
+#Uranus:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 4px double #756d5d9d;
+  border-top-width: 0;
+  border-radius: 50%;
+  animation: urings 1s infinite linear;
+  transition: transform 330ms ease;
+}
+
+@keyframes urings {
+  0% {
+    transform: rotateX(150deg) rotateY(80deg) rotateZ(0deg) scale(1.75);
+  }
+  50% {
+    transform: rotateX(150deg) rotateY(80deg) rotateZ(0deg) scale(1.7);
+  }
+  100% {
+    transform: rotateX(150deg) rotateY(80deg) rotateZ(0deg) scale(1.75);
+  }
+}
+
+/* Neptune */
+
+#Neptune {
+  background-image: linear-gradient(
+    180deg,
+    hsl(234deg 57% 40%) 0%,
+    hsl(232deg 57% 45%) 14%,
+    hsl(231deg 57% 49%) 21%,
+    hsl(231deg 64% 53%) 26%,
+    hsl(230deg 74% 57%) 30%,
+    hsl(229deg 81% 59%) 35%,
+    hsl(228deg 85% 60%) 39%,
+    hsl(226deg 89% 61%) 43%,
+    hsl(225deg 93% 62%) 46%,
+    hsl(224deg 97% 63%) 50%,
+    hsl(225deg 93% 62%) 54%,
+    hsl(226deg 89% 60%) 57%,
+    hsl(228deg 85% 59%) 61%,
+    hsl(229deg 82% 57%) 65%,
+    hsl(230deg 76% 55%) 69%,
+    hsl(230deg 69% 53%) 74%,
+    hsl(230deg 62% 51%) 79%,
+    hsl(230deg 58% 49%) 86%,
+    hsl(230deg 56% 46%) 100%
+  );
+  transform: rotateZ(-18deg);
+}
+
+#Neptune:before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 65px 55px 9px 6px #344bbe;
+  animation: shiftCloudsSubtle 2s infinite linear;
+  transition: transform 330ms ease;
+}
+
+#Neptune:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 22px 5px 8px 1px rgba(255, 255, 255, 0.1),
+    10px 25px 8px 1px rgba(255, 255, 255, 0.2),
+    /* 45px 30px 10px 1px rgba(255, 255, 255, 0.3), */
+      /* 45px 45px 8px 1px rgba(255, 255, 255, 0.2), */ 0px 50px 8px 1px
+      rgba(255, 255, 255, 0.1),
+    25px 65px 8px 1px rgba(255, 255, 255, 0.2),
+    /* 35px 80px 10px 1px rgba(255, 255, 255, 0.3), */ 23px 90px 8px 1px
+      rgba(255, 255, 255, 0.1);
+  animation: shiftClouds 2s infinite linear;
+  transition: transform 330ms ease;
+}
+
+@keyframes shiftCloudsSubtle {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  25% {
+    transform: translateX(1px) translateY(0px);
+  }
+  50% {
+    transform: translateX(1px) translateY(1px);
+  }
+  75% {
+    transform: translateX(0px) translateY(1px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+@media (width<400) {
+  .sunImg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (width<=976px) {
+  .sunImg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .planetImg {
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .planetImg:hover {
+    box-shadow: none;
+    transform: scale(1.25);
+  }
+
+  #Mercury:before,
+  #Mercury:after,
+  #Venus:after,
+  #Earth:after,
+  #Mars:before,
+  #Mars:after,
+  #Jupiter:before,
+  #Jupiter:after,
+  #Neptune:before,
+  #Neptune:after {
+    content: none;
+  }
+
+  #Saturn:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 8px double #a8a59fc2;
+    border-top-width: 0;
+    border-radius: 50%;
+    animation: srings 1.5s infinite linear;
+    transition: transform 330ms ease;
+  }
+
+  #Saturn:after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 4px double #756d5d9d;
+    border-top-width: 0;
+    border-radius: 50%;
+    animation: srings 1s infinite linear;
+    transition: transform 330ms ease;
+  }
+
+  #Uranus:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px double #a8a59fc2;
+    border-top-width: 0;
+    border-radius: 50%;
+    animation: urings 1.5s infinite linear;
+    transition: transform 330ms ease;
+  }
+
+  #Uranus:after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px double #756d5d9d;
+    border-top-width: 0;
+    border-radius: 50%;
+    animation: urings 1s infinite linear;
+    transition: transform 330ms ease;
+  }
+}

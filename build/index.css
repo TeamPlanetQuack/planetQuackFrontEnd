@@ -1,0 +1,377 @@
+/* Palette:  f19953 (orange) FBFFFE (white) 1B2735 (background galaxy dark) 06BA63 (green) maybe: 816E94 (purple)*/
+
+body {
+  background: radial-gradient(#1b2735 0%, #090a0f 100%);
+  color: #fbfffe;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+#planets {
+  width: 100%;
+}
+
+.space {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.starfield {
+  position: fixed;
+  z-index: -1;
+}
+
+.spaceMinusStars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header and NavBar */
+
+#planetsNavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (width<1012px) {
+  #planetsNavBar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+.sunImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sunImg p {
+  width: fit-content;
+  font-size: 280%;
+  white-space: nowrap;
+}
+
+/* Homepage Content CSS */
+
+#homePage {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.623);
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@media (width<600px) {
+  #homePage {
+    width: 95vw;
+  }
+}
+
+#homePage h3 {
+  align-self: center;
+}
+
+.vocab:hover {
+  cursor: help;
+  font-weight: bold;
+}
+
+.vocab {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+a {
+  color: #fbfffe;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.didYouKnow {
+  background: #06ba63;
+  color: #fbfffe;
+  /* font-weight: bold; */
+  width: 80%;
+  padding: 10px;
+  border-radius: 15px;
+  align-self: center;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.didYouKnow:hover {
+  cursor: pointer;
+}
+
+.didYouKnow:active {
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+.dYK {
+  display: block;
+  font-size: 280%;
+  aspect-ratio: 1;
+  padding-right: 20px;
+  padding-left: 10px;
+  float: left;
+}
+
+#didYouKnowBefore {
+  font-size: 280%;
+}
+
+.definition {
+  background: #f19953;
+  color: #fbfffe;
+  /* font-weight: bold; */
+  width: 80%;
+  padding: 10px;
+  border-radius: 15px;
+  align-self: center;
+  animation: definitionsEaseIn 0.3s ease-in-out;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#quizContainer {
+  background: #06ba63;
+  color: #fbfffe;
+  /* font-weight: bold; */
+  width: 80%;
+  padding: 10px;
+  border-radius: 15px;
+  align-self: center;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes definitionsEaseIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 100%;
+  }
+}
+
+#footer {
+  align-self: stretch;
+  margin-top: 20px;
+  padding: 10px;
+  justify-self: flex-end;
+  font-size: 0.7em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Back to The Solar System Button */
+
+.backToHome {
+  background: #f19953;
+  width: fit-content;
+  font-size: 100%;
+  color: #fbfffe;
+  border: none;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+.backToHome:hover {
+  cursor: pointer;
+}
+
+.backToHome:active {
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+/* Planets and Moons Info CSS */
+
+.infoBox {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.623);
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@media (width<600px) {
+  .infoBox {
+    width: 95vw;
+  }
+}
+
+.stats1,
+.stats2 {
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+}
+
+.spacer {
+  justify-self: center;
+}
+
+.planetRad,
+.planetOrbit {
+  justify-self: end;
+}
+
+.infoBox .backToHome {
+  align-self: center;
+}
+
+.allMoons {
+  width: 95%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: fit-content fit-content fit-content;
+}
+
+/* Quiz Page CSS */
+
+#quizPage {
+  width: 80vw;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.623);
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@media (width<600px) {
+  #quizPage {
+    width: 95vw;
+  }
+}
+
+#quizPage .backToHome {
+  align-self: center;
+}
+
+#submitQuiz {
+  background: #06ba63;
+  width: fit-content;
+  font-size: 100%;
+  color: #fbfffe;
+  border: none;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.75);
+}
+
+/* DwarfPlanets Page CSS */
+
+.dwarfPlanets {
+  width: 80vw;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.623);
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@media (width<600px) {
+  .dwarfPlanets {
+    width: 95vw;
+  }
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.dwarfPlanets .backToHome {
+  align-self: center;
+}
+
+/* Nelsons CSS */
+/*
+.wrapper-outer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #fff;
+  min-height: 450px;
+  max-width: 60%;
+  background: radial-gradient(#1b2735 0%, #090a0f 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .infoBox {
+    max-width: 100%;
+  }
+}
+
+.moonTxt{
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+  margin: 0 auto;
+  
+}
+
+.moonTxt ul {
+  list-style-type: none;
+
+ */

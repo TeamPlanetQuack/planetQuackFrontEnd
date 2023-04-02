@@ -12,6 +12,10 @@ When first opening the project make sure to install the necessesary dependencies
 To view the site, in your CLI use the command "npm run start" and in your browser visit http://localhost:3000. 
 
 <b>Screenshots: </b>
+![image](https://user-images.githubusercontent.com/113493052/229325389-32a56530-c65c-4cb7-8837-61535473b8bc.png)
+![image](https://user-images.githubusercontent.com/113493052/229325402-3f29492b-9a44-4628-9071-82bb5ec18284.png)
+![image](https://user-images.githubusercontent.com/113493052/229325421-e28c08d9-fc2a-4a2b-ad5f-d4df2cab8428.png)
+
 
 <b>Team Members: </b>
 - Alexa Mullin

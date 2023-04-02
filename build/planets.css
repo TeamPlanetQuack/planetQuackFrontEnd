@@ -530,7 +530,7 @@
   }
 }
 
-@media (width<=976px) {
+@media only screen and (width<=976px) {
   .sunImg {
     width: 100px;
     height: 100px;

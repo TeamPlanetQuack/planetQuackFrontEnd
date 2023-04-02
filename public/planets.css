@@ -605,6 +605,7 @@
   .planetImg:hover {
     box-shadow: none;
     transform: scale(1.25);
+    
   }
 
   #Mercury:before,
@@ -616,11 +617,15 @@
   #Jupiter:before,
   #Jupiter:after,
   #Neptune:before,
-  #Neptune:after {
+  #Neptune:after, 
+  #Saturn:before, 
+  #Saturn:after,
+  #Uranus:before,
+  #Uranus:after {
     content: none;
   }
 
-  #Saturn:before {
+  /* #Saturn:before {
     position: absolute;
     content: "";
     display: block;
@@ -674,7 +679,7 @@
     border-radius: 50%;
     animation: urings 1s infinite linear;
     transition: transform 330ms ease;
-  }
+  } */
 }
 
 @media (orientation: portrait) {
@@ -705,11 +710,15 @@
   #Jupiter:before,
   #Jupiter:after,
   #Neptune:before,
-  #Neptune:after {
+  #Neptune:after, 
+  #Saturn:before, 
+  #Saturn:after,
+  #Uranus:before,
+  #Uranus:after {
     content: none;
   }
 
-  #Saturn:before {
+  /* #Saturn:before {
     position: absolute;
     content: "";
     display: block;
@@ -763,5 +772,5 @@
     border-radius: 50%;
     animation: urings 1s infinite linear;
     transition: transform 330ms ease;
-  }
+  } */
 }

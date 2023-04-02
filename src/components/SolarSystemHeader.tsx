@@ -18,7 +18,8 @@ const SolarSystemHeader: React.FC<PlanetsNavigationBarProps> = (
   }
 
   return (
-    <div className="sunImg">
+    // <div className="sunImg">
+    <div>
       <p onClick={clickedHome}>The Solar System</p>
     </div>
   );

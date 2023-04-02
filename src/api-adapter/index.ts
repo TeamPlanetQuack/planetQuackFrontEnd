@@ -1,7 +1,7 @@
 // all API fetch requests go here
 export async function getAllPlanets() {
   try {
-    const response = await fetch("http://localhost:8080/api/planets");
+    const response = await fetch("https://planet-server.onrender.com/api/planets");
     const planets = await response.json();
     return planets;
   } catch (error) {
@@ -10,7 +10,7 @@ export async function getAllPlanets() {
 }
 export async function getTenQuizQuestions() {
   try {
-    const response = await fetch("http://localhost:8080/api/questions/ten");
+    const response = await fetch("https://planet-server.onrender.com/api/questions/ten");
     const tenQuestions = await response.json();
     return tenQuestions;
   } catch (error) {
@@ -21,7 +21,7 @@ export async function getTenQuizQuestions() {
 export async function getMoonsByPlanetId(planetId: number) {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/moons/planet/${planetId}`
+      `https://planet-server.onrender.com/api/moons/planet/${planetId}`
     );
     const moons = await response.json();
     return moons;
@@ -32,7 +32,7 @@ export async function getMoonsByPlanetId(planetId: number) {
 
 export async function getDwarfPlanets() {
   try {
-    const response = await fetch("http://localhost:8080/api/dwarf_planets");
+    const response = await fetch("https://planet-server.onrender.com/api/dwarf_planets");
     const dwarfs = await response.json();
     return dwarfs;
   } catch (error) {
